@@ -1,29 +1,32 @@
 import styled from 'styled-components';
 
-export const HeaderContainer = styled.header`
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 20px 15px;
   width: 25%;
   height: 100%;
   position: fixed;
 `;
 
-export const HeaderWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  padding: 20px 15px;
+export const HeaderContainer = styled.header`
+  padding: 10px 0 20px;
 `;
 
 export const HeaderTitle = styled.h1`
   font-family: cursive;
-  margin: 10px 0 20px;
+  margin: 0;
   padding: 0 12px;
+`;
+
+export const Nav = styled.nav`
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 `;
 
 export const NavigationList = styled.ul`
   list-style-type: none;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
   margin: 0;
   padding: 0;
 `;

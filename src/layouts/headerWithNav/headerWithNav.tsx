@@ -3,20 +3,23 @@ import { HeaderNavigate, Popup } from '../../constants/data';
 import {
   HeaderContainer,
   HeaderTitle,
-  HeaderWrapper,
+  Wrapper,
   ItemIcon,
   ItemText,
   ListItem,
   ListItemContainer,
   NavigationList,
   PopupMore,
-} from './header.styled';
+  Nav,
+} from './headerWithNav.styled';
 
-export const Header = () => {
+export const HeaderWithNav = () => {
   return (
-    <HeaderContainer>
-      <HeaderWrapper>
+    <Wrapper>
+      <HeaderContainer>
         <HeaderTitle>Catagram</HeaderTitle>
+      </HeaderContainer>
+      <Nav>
         <NavigationList>
           {HeaderNavigate.map(item => (
             <ListItemContainer key={uuidv4()}>
@@ -27,13 +30,13 @@ export const Header = () => {
             </ListItemContainer>
           ))}
         </NavigationList>
-        <PopupMore>
-          <ListItem>
-            <ItemIcon>{Popup.icon}</ItemIcon>
-            <ItemText>{Popup.text}</ItemText>
-          </ListItem>
-        </PopupMore>
-      </HeaderWrapper>
-    </HeaderContainer>
+      </Nav>
+      <PopupMore>
+        <ListItem>
+          <ItemIcon>{Popup.icon}</ItemIcon>
+          <ItemText>{Popup.text}</ItemText>
+        </ListItem>
+      </PopupMore>
+    </Wrapper>
   );
 };

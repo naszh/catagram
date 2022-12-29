@@ -1,7 +1,7 @@
-import { Header } from './layouts/header/header';
+import { HeaderWithNav } from './layouts/headerWithNav/headerWithNav';
 
 function App() {
-  return <Header />;
+  return <HeaderWithNav />;
 }
 
 export default App;
