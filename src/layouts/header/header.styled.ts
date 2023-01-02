@@ -1,19 +1,26 @@
 import styled from 'styled-components';
+import { Theme } from '@mui/material';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ theme: Theme }>`
   display: flex;
   flex-direction: column;
   padding: 20px 15px;
   width: 20%;
   height: 100%;
+  border-right: 1px solid;
+  background-color: ${({ theme }) =>
+    theme === 'light' ? '#FFFFFF' : '#000000'};
+  border-color: ${({ theme }) =>
+    theme === 'light' ? 'rgba(0,0,0,0.2)' : 'rgba(255,255,255,0.2)'};
 `;
 
 export const HeaderContainer = styled.header`
-  padding: 10px 0 20px;
+  padding: 10px 0 35px;
 `;
 
 export const HeaderTitle = styled.h1`
   font-family: cursive;
+  font-size: 1.8rem;
   margin: 0;
   padding: 0 12px;
 `;
@@ -30,16 +37,22 @@ export const NavigationList = styled.ul`
   padding: 0;
 `;
 
-export const ListItemContainer = styled.li``;
+export const ListItemContainer = styled.li<{ theme: Theme }>`
+  margin-bottom: 5px;
+  &:hover {
+    background-color: ${({ theme }) =>
+      theme === 'light' ? 'rgba(0,0,0,0.03)' : 'rgba(255,255,255,0.03)'};
+    border-radius: 25px;
+	},
+`;
 
 export const ListItem = styled.a`
   display: flex;
+  align-items: center;
   gap: 10px;
   padding: 12px;
-`;
-
-export const ItemIcon = styled.span`
-  align-self: center;
+  text-decoration: none;
+  color: inherit;
 `;
 
 export const ItemText = styled.p`

@@ -1,7 +1,7 @@
 import { Menu } from '@szhsin/react-menu';
 import '@szhsin/react-menu/dist/index.css';
 import { Popup, PopupLogOut, PopupSwitch } from '../../constants/data';
-import { ItemIcon, ItemText } from '../../layouts/header/header.styled';
+import { ItemText } from '../../layouts/header/header.styled';
 import { Item, PopupMenu } from './popup.styled';
 import { useContext } from 'react';
 import { ThemeContext } from '../theme/themeProvider';
@@ -12,7 +12,7 @@ export const PopupMore = () => {
     <Menu
       menuButton={
         <PopupMenu>
-          <ItemIcon>{Popup.icon}</ItemIcon>
+          {Popup.icon}
           <ItemText>{Popup.text}</ItemText>
         </PopupMenu>
       }
