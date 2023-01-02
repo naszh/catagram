@@ -11,9 +11,9 @@ import {
   NavigationList,
   PopupMore,
   Nav,
-} from './headerWithNav.styled';
+} from './header.styled';
 
-export const HeaderWithNav = () => {
+export const Header = () => {
   return (
     <Wrapper>
       <HeaderContainer>
