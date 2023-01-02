@@ -1,18 +1,7 @@
-import { PageContainer } from './App.styled';
-import { Footer } from './layouts/footer/footer';
-import { Header } from './layouts/header/header';
-import { Main } from './layouts/main/main';
+import { HomePage } from './pages/home';
 
 function App() {
-  return (
-    <>
-      <Header />
-      <PageContainer>
-        <Main />
-        <Footer></Footer>
-      </PageContainer>
-    </>
-  );
+  return <HomePage />;
 }
 
 export default App;

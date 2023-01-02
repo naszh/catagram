@@ -30,13 +30,12 @@ export const NavigationList = styled.ul`
   padding: 0;
 `;
 
-export const ListItemContainer = styled.li`
-  padding: 12px;
-`;
+export const ListItemContainer = styled.li``;
 
 export const ListItem = styled.a`
   display: flex;
   gap: 10px;
+  padding: 12px;
 `;
 
 export const ItemIcon = styled.span`
@@ -45,8 +44,4 @@ export const ItemIcon = styled.span`
 
 export const ItemText = styled.p`
   margin: 0;
-`;
-
-export const PopupMore = styled.div`
-  padding: 12px;
 `;

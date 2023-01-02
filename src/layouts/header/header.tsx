@@ -1,5 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
-import { HeaderNavigate, Popup } from '../../constants/data';
+import { PopupMore } from '../../components/popup/popup';
+import { HeaderNavigate } from '../../constants/data';
 import {
   HeaderContainer,
   HeaderTitle,
@@ -9,7 +10,6 @@ import {
   ListItem,
   ListItemContainer,
   NavigationList,
-  PopupMore,
   Nav,
 } from './header.styled';
 
@@ -31,12 +31,7 @@ export const Header = () => {
           ))}
         </NavigationList>
       </Nav>
-      <PopupMore>
-        <ListItem>
-          <ItemIcon>{Popup.icon}</ItemIcon>
-          <ItemText>{Popup.text}</ItemText>
-        </ListItem>
-      </PopupMore>
+      <PopupMore />
     </Wrapper>
   );
 };

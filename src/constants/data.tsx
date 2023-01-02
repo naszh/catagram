@@ -28,10 +28,17 @@ export const Popup: IconNavigateType = {
   link: '',
 };
 
-export const PopupList: Array<IconNavigateType> = [
-  { text: 'Switch appearance', icon: <ThemeIcon />, link: '' },
-  { text: 'Log out', icon: <LogOutIcon />, link: '' },
-];
+export const PopupSwitch: IconNavigateType = {
+  text: 'Switch appearance',
+  icon: <ThemeIcon />,
+  link: '',
+};
+
+export const PopupLogOut: IconNavigateType = {
+  text: 'Log out',
+  icon: <LogOutIcon />,
+  link: '',
+};
 
 export const Suggestions = [
   { img: '', nickname: '', text: 'Suggested for you' },
