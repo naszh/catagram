@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+import { ThemeContext } from '../../components/theme/themeProvider';
 import {
   Container,
   MainComponent,
@@ -7,13 +9,15 @@ import {
 } from './main.styled';
 
 export const Main = () => {
+  const { theme } = useContext(ThemeContext);
+
   return (
     <MainComponent>
       <SectionComponent>
-        <Container>
+        <Container theme={theme}>
           <StoriesBlock></StoriesBlock>
         </Container>
-        <Container>
+        <Container theme={theme}>
           <PostBlock></PostBlock>
         </Container>
       </SectionComponent>
