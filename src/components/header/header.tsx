@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { PopupMore } from '../../components/popup/popup';
-import { ThemeContext } from '../../components/theme/themeProvider';
+import { PopupMore } from './popup/popup';
+import { ThemeContext } from '../theme/themeProvider';
 import { HeaderNavigate } from '../../constants/data';
 import {
   HeaderContainer,

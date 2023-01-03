@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { ThemeContext } from '../../components/theme/themeProvider';
+import { ThemeContext } from '../theme/themeProvider';
 import {
   Container,
   MainComponent,

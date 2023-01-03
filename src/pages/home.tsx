@@ -1,6 +1,6 @@
-import { Footer } from '../layouts/footer/footer';
-import { Header } from '../layouts/header/header';
-import { Main } from '../layouts/main/main';
+import { Footer } from '../components/footer/footer';
+import { Header } from '../components/header/header';
+import { Main } from '../components/main/main';
 import { Container } from './pages.styled';
 
 export const HomePage = () => {

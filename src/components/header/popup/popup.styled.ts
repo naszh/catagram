@@ -1,6 +1,6 @@
 import { MenuItem } from '@szhsin/react-menu';
 import styled from 'styled-components';
-import { ListItem } from '../../layouts/header/header.styled';
+import { ListItem } from '../header.styled';
 
 export const PopupMenu = styled(ListItem)`
   cursor: pointer;
