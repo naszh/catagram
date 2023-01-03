@@ -5,8 +5,8 @@ import {
   MainComponent,
   PostBlock,
   SectionComponent,
-  StoriesBlock,
 } from './main.styled';
+import { StoriesList } from './stories/stories';
 
 export const Main = () => {
   const { theme } = useContext(ThemeContext);
@@ -15,7 +15,7 @@ export const Main = () => {
     <MainComponent>
       <SectionComponent>
         <Container theme={theme}>
-          <StoriesBlock></StoriesBlock>
+          <StoriesList />
         </Container>
         <Container theme={theme}>
           <PostBlock></PostBlock>

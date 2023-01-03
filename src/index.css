@@ -21,4 +21,22 @@ body {
   display: flex;
   flex-direction: row;
   height: 100vh;
+  --swiper-theme-color: none;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: small !important;
+  font-weight: 900;
+  background-color: darkseagreen;
+  padding: 5px 8px;
+  border-radius: 50%;
+}
+
+.swiper-button-prev {
+  left: -2px !important;
+}
+
+.swiper-button-next {
+  right: -2px !important;
 }

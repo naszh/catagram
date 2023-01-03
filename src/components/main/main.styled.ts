@@ -20,11 +20,6 @@ export const Container = styled.div<{ theme: Theme }>`
     theme === 'light' ? '#FFFFFF' : '#000000'};
 `;
 
-export const StoriesBlock = styled.div`
-  padding: 10px;
-  height: 90px;
-`;
-
 export const PostBlock = styled.div`
   height: 500px;
 `;
