@@ -10,13 +10,7 @@ import { RootState } from '../../../redux/store';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
-import {
-  ClearLayer,
-  SlideStyled,
-  StoryContainer,
-  StoryImg,
-  StoryUser,
-} from './stories.styled';
+import { SlideStyled, StoryImg, StoryUser } from './stories.styled';
 
 export const StoriesList = (): JSX.Element => {
   const catsForStories = useSelector((state: RootState) => state.cats.initArr);

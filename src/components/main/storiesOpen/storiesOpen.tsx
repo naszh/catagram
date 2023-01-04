@@ -13,19 +13,6 @@ interface StoriesOpenProps {
 export const StoriesOpen = ({ visible = false, onClose }: StoriesOpenProps) => {
   const catsForStories = useSelector((state: RootState) => state.cats.initArr);
 
-  const stories2: any = [
-    {
-      content: () => {
-        return <StoryImage src={catsForStories[0]?.url} />;
-      },
-    },
-    {
-      content: () => {
-        return <StoryImage src={catsForStories[1]?.url} />;
-      },
-    },
-  ];
-
   const onKeydown = ({ key }: KeyboardEvent) => {
     switch (key) {
       case 'Escape':
@@ -50,7 +37,7 @@ export const StoriesOpen = ({ visible = false, onClose }: StoriesOpenProps) => {
           height={560}
           defaultInterval={6000}
           keyboardNavigation
-          stories={stories2}
+          stories={catsForStories}
           storyContainerStyles={StoryStyles}
           onAllStoriesEnd={() => onClose()}
         />
