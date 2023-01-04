@@ -11,6 +11,7 @@ import { RootState } from '../../../redux/store';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import {
+  ClearLayer,
   SlideStyled,
   StoryContainer,
   StoryImg,
@@ -32,9 +33,7 @@ export const StoriesList = (): JSX.Element => {
           </SlideStyled>
         ))}
       </Swiper>
-      <StoryContainer>
-        <StoriesOpen visible={isModal} onClose={onClose} />
-      </StoryContainer>
+      <StoriesOpen visible={isModal} onClose={onClose} />
     </>
   );
 };

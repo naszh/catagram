@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import Stories from 'react-insta-stories';
 import { RootState } from '../../../redux/store';
 import { CloseStories, StoryImage, StoryStyles } from './storiesOpen.styled';
+import { ClearLayer, StoryContainer } from '../stories/stories.styled';
 
 interface StoriesOpenProps {
   visible: boolean;
@@ -42,16 +43,19 @@ export const StoriesOpen = ({ visible = false, onClose }: StoriesOpenProps) => {
 
   return (
     <>
-      <Stories
-        width={350}
-        height={560}
-        defaultInterval={6000}
-        keyboardNavigation
-        stories={stories2}
-        storyContainerStyles={StoryStyles}
-        onAllStoriesEnd={() => onClose()}
-      />
-      <CloseStories onClick={onClose} />
+      <ClearLayer onClick={onClose} />
+      <StoryContainer>
+        <Stories
+          width={350}
+          height={560}
+          defaultInterval={6000}
+          keyboardNavigation
+          stories={stories2}
+          storyContainerStyles={StoryStyles}
+          onAllStoriesEnd={() => onClose()}
+        />
+        <CloseStories onClick={onClose} />
+      </StoryContainer>
     </>
   );
 };

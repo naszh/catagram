@@ -11,6 +11,7 @@ export const StoryImg = styled.img`
   height: 60px;
   border-radius: 50%;
   object-fit: cover;
+  cursor: pointer;
 `;
 
 export const StoryUser = styled.p`
@@ -24,6 +25,16 @@ export const StoryContainer = styled.div`
   z-index: 100;
   display: flex;
   justify-content: center;
+  right: 40%;
+`;
+
+export const ClearLayer = styled.div`
+  position: fixed;
+  top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.7;
+  z-index: 70;
 `;
