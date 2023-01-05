@@ -49,6 +49,6 @@ export interface InitialStateType {
   error: null | string;
 }
 
-export type AddCatsType = {
-  catsArr: Array<Cat>;
+export type AddStoriesType = {
+  storiesArr: Array<Cat>;
 };

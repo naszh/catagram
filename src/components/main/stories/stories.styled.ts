@@ -4,6 +4,7 @@ import { SwiperSlide } from 'swiper/react';
 export const SlideStyled = styled(SwiperSlide)`
   padding: 15px;
   text-align: center;
+  cursor: pointer;
 `;
 
 export const StoryImg = styled.img`
@@ -11,7 +12,6 @@ export const StoryImg = styled.img`
   height: 60px;
   border-radius: 50%;
   object-fit: cover;
-  cursor: pointer;
 `;
 
 export const StoryUser = styled.p`

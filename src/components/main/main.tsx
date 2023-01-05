@@ -1,11 +1,12 @@
 import { useContext } from 'react';
 import { ThemeContext } from '../theme/themeProvider';
 import {
-  Container,
+  ContainerPosts,
+  ContainerStories,
   MainComponent,
-  PostBlock,
   SectionComponent,
 } from './main.styled';
+import { Posts } from './posts/posts';
 import { StoriesList } from './stories/stories';
 
 export const Main = () => {
@@ -14,12 +15,12 @@ export const Main = () => {
   return (
     <MainComponent>
       <SectionComponent>
-        <Container theme={theme}>
+        <ContainerStories theme={theme}>
           <StoriesList />
-        </Container>
-        <Container theme={theme}>
-          <PostBlock></PostBlock>
-        </Container>
+        </ContainerStories>
+        <ContainerPosts>
+          <Posts />
+        </ContainerPosts>
       </SectionComponent>
     </MainComponent>
   );

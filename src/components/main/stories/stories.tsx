@@ -5,7 +5,7 @@ import { Navigation, A11y } from 'swiper';
 import { Swiper } from 'swiper/react';
 
 import { StoriesOpen } from '../storiesOpen/storiesOpen';
-import { Cat } from '../../../redux/reducer/catsSliceTypes';
+import { Cat } from '../../../redux/reducer/storiesReducer/storiesSlice.types';
 import { RootState } from '../../../redux/store';
 
 import 'swiper/css';
@@ -13,7 +13,9 @@ import 'swiper/css/navigation';
 import { SlideStyled, StoryImg, StoryUser } from './stories.styled';
 
 export const StoriesList = (): JSX.Element => {
-  const catsForStories = useSelector((state: RootState) => state.cats.initArr);
+  const catsForStories = useSelector(
+    (state: RootState) => state.stories.initArr
+  );
   const [isModal, setModal] = useState(false);
   const onClose = () => setModal(false);
 
@@ -23,7 +25,7 @@ export const StoriesList = (): JSX.Element => {
         {catsForStories.map((story: Cat) => (
           <SlideStyled key={uuidv4()} onClick={() => setModal(true)}>
             <StoryImg src={story.url} />
-            <StoryUser>{story.id.slice(0, 3)}</StoryUser>
+            <StoryUser>{story.id?.slice(0, 3)}</StoryUser>
           </SlideStyled>
         ))}
       </Swiper>

@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import Stories from 'react-insta-stories';
 import { RootState } from '../../../redux/store';
-import { CloseStories, StoryImage, StoryStyles } from './storiesOpen.styled';
+import { CloseStories, StoryStyles } from './storiesOpen.styled';
 import { ClearLayer, StoryContainer } from '../stories/stories.styled';
 
 interface StoriesOpenProps {
@@ -11,7 +11,9 @@ interface StoriesOpenProps {
 }
 
 export const StoriesOpen = ({ visible = false, onClose }: StoriesOpenProps) => {
-  const catsForStories = useSelector((state: RootState) => state.cats.initArr);
+  const catsForStories = useSelector(
+    (state: RootState) => state.stories.initArr
+  );
 
   const onKeydown = ({ key }: KeyboardEvent) => {
     switch (key) {

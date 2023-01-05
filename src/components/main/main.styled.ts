@@ -11,7 +11,7 @@ export const SectionComponent = styled.section`
   gap: 20px;
 `;
 
-export const Container = styled.div<{ theme: Theme }>`
+export const ContainerStories = styled.div<{ theme: Theme }>`
   border: 1px solid;
   border-color: ${({ theme }) =>
     theme === 'light' ? 'rgba(0,0,0,0.2)' : 'rgba(255,255,255,0.2)'};
@@ -20,6 +20,19 @@ export const Container = styled.div<{ theme: Theme }>`
     theme === 'light' ? '#FFFFFF' : '#000000'};
 `;
 
-export const PostBlock = styled.div`
+export const ContainerPosts = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 20px;
+`;
+
+export const PostBlock = styled.div<{ theme: Theme }>`
   height: 500px;
+  border: 1px solid;
+  border-color: ${({ theme }) =>
+    theme === 'light' ? 'rgba(0,0,0,0.2)' : 'rgba(255,255,255,0.2)'};
+  border-radius: 10px;
+  background-color: ${({ theme }) =>
+    theme === 'light' ? '#FFFFFF' : '#000000'};
 `;
