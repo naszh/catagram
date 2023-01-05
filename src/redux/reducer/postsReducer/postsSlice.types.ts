@@ -1,5 +1,5 @@
 export interface InitialStateType {
-  initArr: Array<any>;
+  initArr: Array<Cat>;
   error: null | string;
 }
 

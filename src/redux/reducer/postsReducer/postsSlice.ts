@@ -4,11 +4,8 @@ import { AddPostsType, Cat, InitialStateType } from './postsSlice.types';
 
 export const fetchPosts: any = createAsyncThunk('cats/fetchPosts', async () => {
   const response = await catPostsApi.get(`/api/cats?limit=${count}`);
-  const responseSrc = Object.values(
-    response.data.map((arr: Cat) => `https://cataas.com/cat/${arr._id}`)
-  );
 
-  return responseSrc;
+  return response.data;
 });
 
 const initialState: InitialStateType = {

@@ -26,13 +26,3 @@ export const ContainerPosts = styled.div`
   gap: 20px;
   margin-bottom: 20px;
 `;
-
-export const PostBlock = styled.div<{ theme: Theme }>`
-  height: 500px;
-  border: 1px solid;
-  border-color: ${({ theme }) =>
-    theme === 'light' ? 'rgba(0,0,0,0.2)' : 'rgba(255,255,255,0.2)'};
-  border-radius: 10px;
-  background-color: ${({ theme }) =>
-    theme === 'light' ? '#FFFFFF' : '#000000'};
-`;
