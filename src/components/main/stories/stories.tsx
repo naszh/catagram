@@ -31,7 +31,7 @@ export const StoriesList = (): JSX.Element => {
         {catsForStories.map((story: Cat) => (
           <SlideStyled key={uuidv4()} onClick={() => setModal(true)}>
             <StoryImg src={story.image_link} />
-            <StoryUser>{slisedName(story.name)}</StoryUser>
+            <StoryUser>{slisedName(story.name.toLowerCase())}</StoryUser>
           </SlideStyled>
         ))}
       </Swiper>

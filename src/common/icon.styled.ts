@@ -11,6 +11,8 @@ import {
   HiUserCircle,
 } from 'react-icons/hi';
 import { GiMoon } from 'react-icons/gi';
+import { TiHeartOutline } from 'react-icons/ti';
+import { MdOutlineModeComment } from 'react-icons/md';
 
 export const HomeIcon = styled(HiHome)`
   font-size: 1.6rem;
@@ -41,4 +43,12 @@ export const ThemeIcon = styled(GiMoon)`
 `;
 export const LogOutIcon = styled(HiOutlineLogout)`
   font-size: 1.5rem;
+`;
+
+export const LikeIcon = styled(TiHeartOutline)`
+  font-size: 2rem;
+`;
+export const CommentIcon = styled(MdOutlineModeComment)`
+  font-size: 1.8rem;
+  margin-left: 10px;
 `;

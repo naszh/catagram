@@ -10,7 +10,7 @@ import {
   ProfileIcon,
   SearchIcon,
   ThemeIcon,
-} from './icon.styled';
+} from '../common/icon.styled';
 
 export const HeaderNavigate: Array<IconNavigateType> = [
   { text: 'Home', icon: <HomeIcon />, link: '' },

@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { useSelector } from 'react-redux';
+import { CommentIcon, LikeIcon } from '../../../common/icon.styled';
 import { Cat } from '../../../redux/reducer/catsSlice.types';
 import { RootState } from '../../../redux/store';
 import { ThemeContext } from '../../theme/themeProvider';
@@ -9,6 +10,10 @@ import {
   BlockImg,
   PostBlock,
   BlockUser,
+  PostIcons,
+  PostCounter,
+  PostDescription,
+  PostComment,
 } from './posts.styled';
 
 export const Posts = (): any => {
@@ -25,13 +30,19 @@ export const Posts = (): any => {
         <PostBlock theme={theme}>
           <BlockHeader>
             <BlockHeaderImg src={cat.image_link} />
-            <BlockUser>{cat.name}</BlockUser>
+            <BlockUser>{cat.name.toLowerCase()}</BlockUser>
           </BlockHeader>
           <BlockImg src={cat.image_link} />
-          <div>icons</div>
-          <div>counter</div>
-          <BlockUser>{cat.origin}</BlockUser>
-          <div>add a comment</div>
+          <PostIcons>
+            <LikeIcon />
+            <CommentIcon />
+          </PostIcons>
+          <PostCounter>counter</PostCounter>
+          <BlockUser>
+            {cat.name.toLowerCase()}
+            <PostDescription>origin#{cat.origin}</PostDescription>
+          </BlockUser>
+          <PostComment>add a comment</PostComment>
         </PostBlock>
       ))}
     </>
