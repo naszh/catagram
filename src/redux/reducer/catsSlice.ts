@@ -2,15 +2,8 @@ import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { api, X_API_KEY } from '../../api/api';
 import { AddCatsType, InitialStateType } from './catsSlice.types';
 
-const randomLetter = (): string => {
-  const alphabet = 'abcdefghijklmnopqrstuvwxyz';
-  const randomIndex = Math.floor(Math.random() * alphabet.length);
-  const random = alphabet[randomIndex];
-  return random;
-};
-
 export const fetchCats: any = createAsyncThunk('cats/fetchCats', async () => {
-  const response = await api.get(`?name=${randomLetter()}`, {
+  const response = await api.get('', {
     params: {},
     headers: {
       'X-Api-Key': `${X_API_KEY}`,
@@ -28,7 +21,7 @@ const catsSlice = createSlice({
   name: 'cats',
   initialState,
   reducers: {
-    addStories: (state, { payload }: PayloadAction<AddCatsType>) => {
+    addCats: (state, { payload }: PayloadAction<AddCatsType>) => {
       state.initArr = payload.catsArr;
     },
   },
@@ -42,5 +35,5 @@ const catsSlice = createSlice({
   },
 });
 
-export const { addStories } = catsSlice.actions;
+export const { addCats } = catsSlice.actions;
 export const catsReducer = catsSlice.reducer;
