@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { useSelector } from 'react-redux';
-import { Cat } from '../../../redux/reducer/postsReducer/postsSlice.types';
+import { Cat } from '../../../redux/reducer/catsSlice.types';
 import { RootState } from '../../../redux/store';
 import { ThemeContext } from '../../theme/themeProvider';
 import {
@@ -11,36 +11,26 @@ import {
   BlockUser,
 } from './posts.styled';
 
-export const Posts = (): JSX.Element => {
+export const Posts = (): any => {
   const { theme } = useContext(ThemeContext);
 
-  const catsForPosts = useSelector((state: RootState) => state.posts.initArr);
-  const responseSrc: Array<string> = Object.values(
-    catsForPosts.map(({ ...data }) => `https://cataas.com/cat/${data._id}`)
+  const catsForPosts: Array<Cat> = useSelector(
+    (state: RootState) => state.cats.initArr
   );
   console.log(catsForPosts);
+
   return (
     <>
-      {responseSrc.map((cat: string) => (
+      {catsForPosts.map((cat: Cat) => (
         <PostBlock theme={theme}>
           <BlockHeader>
-            <BlockHeaderImg src={cat} />
-            {catsForPosts.map(
-              (x: Cat) =>
-                x._id === cat.slice(23) && <BlockUser>{x.owner}</BlockUser>
-            )}
+            <BlockHeaderImg src={cat.image_link} />
+            <BlockUser>{cat.name}</BlockUser>
           </BlockHeader>
-          <BlockImg src={cat} />
+          <BlockImg src={cat.image_link} />
           <div>icons</div>
           <div>counter</div>
-          {catsForPosts.map(
-            (x: Cat) =>
-              x._id === cat.slice(23) && (
-                <BlockUser>
-                  {x.owner} {`#${x.tags.join(' #')}`}
-                </BlockUser>
-              )
-          )}
+          <BlockUser>{cat.origin}</BlockUser>
           <div>add a comment</div>
         </PostBlock>
       ))}

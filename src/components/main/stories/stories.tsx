@@ -5,17 +5,23 @@ import { Navigation, A11y } from 'swiper';
 import { Swiper } from 'swiper/react';
 
 import { StoriesOpen } from '../storiesOpen/storiesOpen';
-import { Cat } from '../../../redux/reducer/storiesReducer/storiesSlice.types';
 import { RootState } from '../../../redux/store';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { SlideStyled, StoryImg, StoryUser } from './stories.styled';
+import { Cat } from '../../../redux/reducer/catsSlice.types';
+
+const slisedName = (text: string): string => {
+  let sliced = text.slice(0, 8);
+  if (sliced.length < text.length) {
+    sliced += '...';
+  }
+  return sliced;
+};
 
 export const StoriesList = (): JSX.Element => {
-  const catsForStories = useSelector(
-    (state: RootState) => state.stories.initArr
-  );
+  const catsForStories = useSelector((state: RootState) => state.cats.initArr);
   const [isModal, setModal] = useState(false);
   const onClose = () => setModal(false);
 
@@ -24,8 +30,8 @@ export const StoriesList = (): JSX.Element => {
       <Swiper modules={[Navigation, A11y]} slidesPerView={6} navigation>
         {catsForStories.map((story: Cat) => (
           <SlideStyled key={uuidv4()} onClick={() => setModal(true)}>
-            <StoryImg src={story.url} />
-            <StoryUser>{story.id?.slice(0, 3)}</StoryUser>
+            <StoryImg src={story.image_link} />
+            <StoryUser>{slisedName(story.name)}</StoryUser>
           </SlideStyled>
         ))}
       </Swiper>

@@ -11,3 +11,8 @@ export const catStoriesApi = axios.create({
 export const catPostsApi = axios.create({
   baseURL: 'https://cataas.com',
 });
+
+export const api = axios.create({
+  baseURL: 'https://api.api-ninjas.com/v1/cats',
+});
+export const X_API_KEY = 'NpP4RAIs1no62j7ml9jr3Q==jSW9mKwLqEp6tSjc';

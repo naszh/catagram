@@ -1,16 +1,14 @@
 import { FC, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { HomePage } from './pages/home';
-import { fetchPosts } from './redux/reducer/postsReducer/postsSlice';
-import { fetchStories } from './redux/reducer/storiesReducer/storiesSlice';
+import { fetchCats } from './redux/reducer/catsSlice';
 import { AppDispatch } from './redux/store';
 
 const App: FC = () => {
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
-    dispatch(fetchStories());
-    dispatch(fetchPosts());
+    dispatch(fetchCats());
   }, [dispatch]);
 
   return <HomePage />;

@@ -5,6 +5,7 @@ export const SlideStyled = styled(SwiperSlide)`
   padding: 15px;
   text-align: center;
   cursor: pointer;
+  align-self: center;
 `;
 
 export const StoryImg = styled.img`
@@ -17,6 +18,7 @@ export const StoryImg = styled.img`
 export const StoryUser = styled.p`
   margin: 0;
   font-size: 0.8rem;
+  white-space: nowrap;
 `;
 
 export const StoryContainer = styled.div`

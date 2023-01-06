@@ -4,6 +4,8 @@ import Stories from 'react-insta-stories';
 import { RootState } from '../../../redux/store';
 import { CloseStories, StoryStyles } from './storiesOpen.styled';
 import { ClearLayer, StoryContainer } from '../stories/stories.styled';
+import { Cat } from '../../../redux/reducer/catsSlice.types';
+import { Story } from 'react-insta-stories/dist/interfaces';
 
 interface StoriesOpenProps {
   visible: boolean;
@@ -11,9 +13,15 @@ interface StoriesOpenProps {
 }
 
 export const StoriesOpen = ({ visible = false, onClose }: StoriesOpenProps) => {
-  const catsForStories = useSelector(
-    (state: RootState) => state.stories.initArr
+  const catsForStories: Array<Cat> = useSelector(
+    (state: RootState) => state.cats.initArr
   );
+  const catsForStoriesImgs: Story[] = Object.values(
+    catsForStories
+      .map(({ ...data }) => `${data.image_link}`)
+      .map(src => ({ url: src }))
+  );
+  console.log(catsForStoriesImgs);
 
   const onKeydown = ({ key }: KeyboardEvent) => {
     switch (key) {
@@ -39,7 +47,7 @@ export const StoriesOpen = ({ visible = false, onClose }: StoriesOpenProps) => {
           height={560}
           defaultInterval={6000}
           keyboardNavigation
-          stories={catsForStories}
+          stories={catsForStoriesImgs}
           storyContainerStyles={StoryStyles}
           onAllStoriesEnd={() => onClose()}
         />
