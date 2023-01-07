@@ -19,6 +19,8 @@ export interface Cat {
 
 export interface InitialStateType {
   initArr: Array<Cat>;
+  offset: any;
+  isLoading: boolean;
   error: null | string;
 }
 

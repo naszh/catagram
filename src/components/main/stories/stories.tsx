@@ -21,7 +21,9 @@ const slisedName = (text: string): string => {
 };
 
 export const StoriesList = (): JSX.Element => {
-  const catsForStories = useSelector((state: RootState) => state.cats.initArr);
+  const catsForStories = useSelector((state: RootState) =>
+    state.cats.initArr.slice(0, 5)
+  );
   const [isModal, setModal] = useState(false);
   const onClose = () => setModal(false);
 

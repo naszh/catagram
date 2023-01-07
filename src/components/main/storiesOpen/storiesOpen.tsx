@@ -13,15 +13,15 @@ interface StoriesOpenProps {
 }
 
 export const StoriesOpen = ({ visible = false, onClose }: StoriesOpenProps) => {
-  const catsForStories: Array<Cat> = useSelector(
-    (state: RootState) => state.cats.initArr
+  const catsForStories: Array<Cat> = useSelector((state: RootState) =>
+    state.cats.initArr.slice(0, 2)
   );
   const catsForStoriesImgs: Story[] = Object.values(
     catsForStories
       .map(({ ...data }) => `${data.image_link}`)
       .map(src => ({ url: src }))
   );
-  console.log(catsForStoriesImgs);
+  // console.log(catsForStoriesImgs);
 
   const onKeydown = ({ key }: KeyboardEvent) => {
     switch (key) {
