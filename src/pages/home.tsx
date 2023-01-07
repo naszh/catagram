@@ -7,7 +7,7 @@ export const HomePage = () => {
   return (
     <>
       <Header />
-      <Container>
+      <Container id='scrollableDiv'>
         <Main />
         <Footer></Footer>
       </Container>

@@ -6,7 +6,7 @@ import {
   MainComponent,
   SectionComponent,
 } from './main.styled';
-import { Posts } from './posts/posts';
+import { PostsPaginate } from './posts/postsPaginate';
 import { StoriesList } from './stories/stories';
 
 export const Main = () => {
@@ -19,7 +19,7 @@ export const Main = () => {
           <StoriesList />
         </ContainerStories>
         <ContainerPosts>
-          <Posts itemsPerPage={3} />
+          <PostsPaginate postsPerPage={3} />
         </ContainerPosts>
       </SectionComponent>
     </MainComponent>
