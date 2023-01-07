@@ -1,8 +1,11 @@
+import axios from 'axios';
 import { useContext, useEffect, useState } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { ColorRing } from 'react-loader-spinner';
+import ReactPaginate from 'react-paginate';
 import { useDispatch, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
+import { links, X_API_KEY } from '../../../api/api';
 
 import { CommentIcon, LikeIcon } from '../../../common/icon.styled';
 import { fetchCats, setCats } from '../../../redux/reducer/catsSlice';
@@ -21,82 +24,86 @@ import {
   PostComment,
 } from './posts.styled';
 
-export const Posts = (): any => {
+function Items({ currentItems }: any) {
   const { theme } = useContext(ThemeContext);
+  console.log(currentItems, 'currentItems');
+  return (
+    <>
+      {currentItems &&
+        currentItems.map((cat: Cat) => (
+          <PostBlock key={uuidv4()} theme={theme}>
+            <BlockHeader>
+              <BlockHeaderImg src={cat.image_link} />
+              <BlockUser>{cat.name.toLowerCase()}</BlockUser>
+            </BlockHeader>
+            <BlockImg src={cat.image_link} />
+            <PostIcons>
+              <LikeIcon />
+              <CommentIcon />
+            </PostIcons>
+            <PostCounter>counter</PostCounter>
+            <BlockUser>
+              {cat.name.toLowerCase()}
+              <PostDescription>origin#{cat.origin}</PostDescription>
+            </BlockUser>
+            <PostComment>add a comment</PostComment>
+          </PostBlock>
+        ))}
+    </>
+  );
+}
 
-  const catsForPosts: Array<Cat> = useSelector(
-    (state: RootState) => state.cats.initArr
-  );
-  const loading: boolean = useSelector(
-    (state: RootState) => state.cats.isLoading
-  );
-  // const dispatch = useDispatch();
+export const Posts = ({ itemsPerPage }: any): any => {
+  const items: any = useSelector((state: RootState) => state.cats.initArr);
+  console.log(items, 'items');
+  const [currentItems, setCurrentItems] = useState(null);
+  const [pageCount, setPageCount] = useState(0);
+  const [itemOffset, setItemOffset] = useState(0);
+
   const dispatch = useDispatch<AppDispatch>();
 
-  const [offset, setOffset] = useState<number>(0);
-
-  const nextHandler = () => {
-    console.log('ooo');
-    setOffset(offset + 20);
-    console.log(offset);
-  };
-
   useEffect(() => {
-    dispatch(fetchCats(offset));
-    console.log(offset);
-  }, [offset]);
-  // console.log(catsForPosts);
+    const endOffset = itemOffset + itemsPerPage;
 
-  // const off: any = useSelector((state: RootState) => state.cats.offset);
-  // console.log(off);
+    dispatch(fetchCats())
+      .then((data: any) => {
+        setCurrentItems(data.payload.slice(itemOffset, endOffset));
+        return data.payload;
+      })
+      .then((data: any) => setPageCount(Math.ceil(data.length / itemsPerPage)));
+  }, [itemOffset, itemsPerPage]);
+
+  const handlePageClick: any = (event: any): any => {
+    const newOffset = (event.selected * itemsPerPage) % items.length;
+    console.log(
+      `User requested page number ${event.selected}, which is offset ${newOffset}`
+    );
+    setItemOffset(newOffset);
+  };
 
   return (
     <>
-      {loading ? (
-        <ColorRing wrapperStyle={{ display: 'block', margin: '0 auto' }} />
-      ) : (
-        <InfiniteScroll
-          dataLength={5}
-          next={() => console.log('next')}
-          hasMore={false}
-          loader={
-            <ColorRing wrapperStyle={{ display: 'block', margin: '0 auto' }} />
-          }
-          endMessage={<p>Ok</p>}
-        >
-          {catsForPosts.map(
-            (cat: Cat, i) => (
-              // i < offset ? (
-              <PostBlock key={uuidv4()} theme={theme}>
-                <BlockHeader>
-                  <BlockHeaderImg src={cat.image_link} />
-                  <BlockUser>{cat.name.toLowerCase()}</BlockUser>
-                </BlockHeader>
-                <BlockImg src={cat.image_link} />
-                <PostIcons>
-                  <LikeIcon />
-                  <CommentIcon />
-                </PostIcons>
-                <PostCounter>counter</PostCounter>
-                <BlockUser>
-                  {cat.name.toLowerCase()}
-                  <PostDescription>origin#{cat.origin}</PostDescription>
-                </BlockUser>
-                <PostComment>add a comment</PostComment>
-              </PostBlock>
-            )
-            // ) : null
-          )}
-
-          {/* <button
-        onClick={() => {
-          setOffset(offset + 2);
-        }}
-      >
-        Show more....
-      </button> */}
-        </InfiniteScroll>
-      )}
+      <Items currentItems={currentItems} />
+      <ReactPaginate
+        nextLabel='next >'
+        onPageChange={handlePageClick}
+        pageRangeDisplayed={3}
+        marginPagesDisplayed={2}
+        pageCount={pageCount}
+        previousLabel='< previous'
+        pageClassName='page-item'
+        pageLinkClassName='page-link'
+        previousClassName='page-item'
+        previousLinkClassName='page-link'
+        nextClassName='page-item'
+        nextLinkClassName='page-link'
+        breakLabel='...'
+        breakClassName='page-item'
+        breakLinkClassName='page-link'
+        containerClassName='pagination'
+        activeClassName='active'
+        // renderOnZeroPageCount={null}
+      />
     </>
   );
 };

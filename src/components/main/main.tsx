@@ -19,7 +19,7 @@ export const Main = () => {
           <StoriesList />
         </ContainerStories>
         <ContainerPosts>
-          <Posts />
+          <Posts itemsPerPage={3} />
         </ContainerPosts>
       </SectionComponent>
     </MainComponent>

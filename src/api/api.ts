@@ -9,9 +9,9 @@ export const param = 1;
 //???x-total-count
 // for (let i = 0; i < 82; i += 20) {
 // for (let i = 0; i < 40; i += 20) {
-export const links: Array<string> = [];
-links.push(`${api}?min_life_expectancy=${param}`);
-// export const links: any = `${api}?min_life_expectancy=${param}`;
+// export const links: Array<string> = [];
+// links.push(`${api}?min_life_expectancy=${param}`);
+export const links: any = `${api}?min_life_expectancy=${param}`;
 
 // &offset=${i}
 // }

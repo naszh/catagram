@@ -8,21 +8,24 @@ export const fetchCats: any = createAsyncThunk(
   async (offset: number = 0) => {
     try {
       //82
-      const requests = links.map(link =>
-        axios.get(link, {
+      const response =
+        // links.map(link =>
+        await axios.get(links, {
           params: {
             offset: offset,
           },
           headers: {
             'X-Api-Key': `${X_API_KEY}`,
           },
-        })
-      );
+        });
+      // );
+      console.log(response);
 
-      const response = await Promise.all(requests).then(r =>
-        r.map(resp => resp.data).flat()
-      );
-      return response;
+      // const response = await requests.then(console.log);
+      // r =>
+      // r.map(resp => resp.data).flat()
+      // );
+      return response.data;
     } catch (err) {
       console.log(err);
     }
