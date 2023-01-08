@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 export const MainComponent = styled.main`
   width: 500px;
+  height: min-content;
 `;
 
 export const SectionComponent = styled.section`

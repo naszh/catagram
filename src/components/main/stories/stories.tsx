@@ -32,7 +32,7 @@ export const StoriesList = (): JSX.Element => {
       <Swiper modules={[Navigation, A11y]} slidesPerView={6} navigation>
         {catsForStories.map((story: Cat) => (
           <SlideStyled key={uuidv4()} onClick={() => setModal(true)}>
-            <StoryImg src={story.image_link} />
+            <StoryImg src={story.image_link} loading='lazy' />
             <StoryUser>{slisedName(story.name.toLowerCase())}</StoryUser>
           </SlideStyled>
         ))}

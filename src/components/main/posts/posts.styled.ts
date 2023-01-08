@@ -4,6 +4,7 @@ import styled from 'styled-components';
 export const PostBlock = styled.div<{ theme: Theme }>`
   display: flex;
   flex-direction: column;
+  margin-bottom: 20px;
   height: 500px;
   border: 1px solid;
   border-color: ${({ theme }) =>

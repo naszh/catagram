@@ -47,8 +47,10 @@ export const LogOutIcon = styled(HiOutlineLogout)`
 
 export const LikeIcon = styled(TiHeartOutline)`
   font-size: 2rem;
+  cursor: pointer;
 `;
 export const CommentIcon = styled(MdOutlineModeComment)`
   font-size: 1.8rem;
   margin-left: 10px;
+  cursor: pointer;
 `;

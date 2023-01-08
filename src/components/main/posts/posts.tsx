@@ -30,10 +30,10 @@ export const Posts = ({ currentPosts }: currentPostsType): JSX.Element => {
         currentPosts.map((cat: Cat) => (
           <PostBlock key={uuidv4()} theme={theme}>
             <BlockHeader>
-              <BlockHeaderImg src={cat.image_link} />
+              <BlockHeaderImg src={cat.image_link} loading='lazy' />
               <BlockUser>{cat.name.toLowerCase()}</BlockUser>
             </BlockHeader>
-            <BlockImg src={cat.image_link} />
+            <BlockImg src={cat.image_link} loading='lazy' />
             <PostIcons>
               <LikeIcon />
               <CommentIcon />
