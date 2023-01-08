@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { ColorRing } from 'react-loader-spinner';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setCurr } from '../../../redux/reducer/catsSlice';
+import { setCurr, setOffset } from '../../../redux/reducer/catsSlice';
 import { Cat } from '../../../redux/reducer/catsSlice.types';
 import { AppDispatch, RootState } from '../../../redux/store';
 import { Posts } from './posts';
@@ -20,23 +20,20 @@ export const PostsPaginate = ({
   const posts: Array<Cat> = useSelector(
     (state: RootState) => state.cats.initArr
   );
+  const offset: number = useSelector((state: RootState) => state.cats.offset);
   const loading: boolean = useSelector(
     (state: RootState) => state.cats.loading
   );
   const currentPosts: Array<Cat> = useSelector(
     (state: RootState) => state.cats.curArr
   );
-  console.log(currentPosts, 'curr');
-
-  const [offset, setOffset] = useState<number>(0);
 
   useEffect(() => {
-    const endOffset: number = offset + postsPerPage;
-    dispatch(setCurr([offset, endOffset]));
+    dispatch(setCurr());
   }, [posts, offset]);
 
   const handlePageClick = (): void => {
-    setOffset(offset + postsPerPage);
+    dispatch(setOffset(postsPerPage));
   };
 
   return (
@@ -50,7 +47,8 @@ export const PostsPaginate = ({
           hasMore={currentPosts.length < posts.length}
           scrollThreshold={1}
           loader={
-            <ColorRing wrapperStyle={{ display: 'block', margin: '0 auto' }} />
+            'load'
+            // <ColorRing wrapperStyle={{ display: 'block', margin: '0 auto' }} /> //triggers posts
           }
           endMessage={<p>Ok</p>} //add styles later
           scrollableTarget='scrollableDiv'

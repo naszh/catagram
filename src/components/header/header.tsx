@@ -26,7 +26,7 @@ export const Header = () => {
         <NavigationList>
           {HeaderNavigate.map(item => (
             <ListItemContainer key={uuidv4()} theme={theme}>
-              <ListItem href={item.link}>
+              <ListItem to={item.link}>
                 {item.icon}
                 <ItemText>{item.text}</ItemText>
               </ListItem>

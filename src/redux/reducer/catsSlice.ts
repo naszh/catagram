@@ -21,6 +21,7 @@ export const fetchCats: any = createAsyncThunk('cats/fetchCats', async () => {
 const initialState: InitialStateType = {
   initArr: [],
   curArr: [],
+  offset: 0,
   counter: 0,
   loading: true,
   error: null,
@@ -33,11 +34,15 @@ const catsSlice = createSlice({
     setCats: (state, { payload }: PayloadAction<AddCatsType>) => {
       state.initArr = payload.catsArr;
     },
-    setCurr: (state, { payload }: PayloadAction<number[]>) => {
+    setCurr: state => {
+      const endOffset: number = state.offset + 3;
       state.curArr = [
         ...state.curArr,
-        ...state.initArr.slice(payload[0], payload[1]),
-      ];
+        ...state.initArr.slice(state.offset, endOffset),
+      ].filter((el, i, arr) => arr.findIndex(elem => elem.id === el.id) == i);
+    },
+    setOffset: (state, { payload }: PayloadAction<number>) => {
+      state.offset += payload;
     },
     toggleIsLiked: (state, action: PayloadAction<any>) => {
       state.curArr = state.curArr.map((post: Cat) =>
@@ -60,21 +65,21 @@ const catsSlice = createSlice({
       state.loading = true;
     });
     builder.addCase(fetchCats.fulfilled, (state, action) => {
+      state.loading = false;
       state.initArr = action.payload;
       state.initArr = state.initArr.map(arr => ({
         ...arr,
         id: uuidv4(),
         isLiked: false,
       }));
-      state.loading = false;
     });
     builder.addCase(fetchCats.rejected, (state, action) => {
-      state.error = action.error.message;
       state.loading = false;
+      state.error = action.error.message;
     });
   },
 });
 
-export const { setCats, setCurr, toggleIsLiked, launchCounter } =
+export const { setCats, setCurr, setOffset, toggleIsLiked, launchCounter } =
   catsSlice.actions;
 export const catsReducer = catsSlice.reducer;

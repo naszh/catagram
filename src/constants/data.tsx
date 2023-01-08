@@ -13,11 +13,11 @@ import {
 } from '../common/icon.styled';
 
 export const HeaderNavigate: Array<IconNavigateType> = [
-  { text: 'Home', icon: <HomeIcon />, link: '' },
+  { text: 'Home', icon: <HomeIcon />, link: '/' },
   { text: 'Search', icon: <SearchIcon />, link: '' },
   { text: 'Explore', icon: <ExploreIcon />, link: '' },
   { text: 'Messages', icon: <MessagesIcon />, link: '' },
-  { text: 'Saved', icon: <SavedIcon />, link: '' },
+  { text: 'Saved', icon: <SavedIcon />, link: '/saved' },
   { text: 'Create', icon: <CreateIcon />, link: '' },
   { text: 'Profile', icon: <ProfileIcon />, link: '' },
 ];

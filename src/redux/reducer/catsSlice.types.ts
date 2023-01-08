@@ -22,6 +22,7 @@ export interface Cat {
 export interface InitialStateType {
   initArr: Array<Cat>;
   curArr: Array<Cat>;
+  offset: number;
   counter: number;
   loading: boolean;
   error: null | string;

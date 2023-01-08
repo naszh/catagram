@@ -1,8 +1,13 @@
 import { MenuItem } from '@szhsin/react-menu';
 import styled from 'styled-components';
-import { ListItem } from '../header.styled';
 
-export const PopupMenu = styled(ListItem)`
+export const PopupMenu = styled.a`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  text-decoration: none;
+  color: inherit;
   cursor: pointer;
 `;
 

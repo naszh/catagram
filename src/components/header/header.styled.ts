@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 import { Theme } from '@mui/material';
+import { NavLink } from 'react-router-dom';
 
 export const Wrapper = styled.div<{ theme: Theme }>`
   display: flex;
   flex-direction: column;
   padding: 20px 15px;
-  width: 20%;
+  // width: 20%;
+  width: 270px;
   height: 100%;
   border-right: 1px solid;
   background-color: ${({ theme }) =>
@@ -46,7 +48,7 @@ export const ListItemContainer = styled.li<{ theme: Theme }>`
 	},
 `;
 
-export const ListItem = styled.a`
+export const ListItem = styled(NavLink)`
   display: flex;
   align-items: center;
   gap: 10px;
