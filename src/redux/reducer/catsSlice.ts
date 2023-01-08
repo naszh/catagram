@@ -1,5 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { v4 as uuidv4 } from 'uuid';
+
 import { link, X_API_KEY } from '../../api/api';
 import { AddCatsType, InitialStateType } from './catsSlice.types';
 
@@ -18,7 +20,8 @@ export const fetchCats: any = createAsyncThunk('cats/fetchCats', async () => {
 
 const initialState: InitialStateType = {
   initArr: [],
-  isLoading: true,
+  curArr: [],
+  loading: true,
   error: null,
 };
 
@@ -29,21 +32,32 @@ const catsSlice = createSlice({
     setCats: (state, { payload }: PayloadAction<AddCatsType>) => {
       state.initArr = payload.catsArr;
     },
+    setCurr: (state, { payload }: PayloadAction<number[]>) => {
+      state.curArr = [
+        ...state.curArr,
+        ...state.initArr.slice(payload[0], payload[1]),
+      ];
+    },
   },
   extraReducers: builder => {
     builder.addCase(fetchCats.pending, state => {
-      state.isLoading = true;
+      state.loading = true;
     });
     builder.addCase(fetchCats.fulfilled, (state, action) => {
       state.initArr = action.payload;
-      state.isLoading = false;
+      state.initArr = state.initArr.map(arr => ({
+        ...arr,
+        id: uuidv4(),
+        isLiked: false,
+      }));
+      state.loading = false;
     });
     builder.addCase(fetchCats.rejected, (state, action) => {
       state.error = action.error.message;
-      state.isLoading = false;
+      state.loading = false;
     });
   },
 });
 
-export const { setCats } = catsSlice.actions;
+export const { setCats, setCurr } = catsSlice.actions;
 export const catsReducer = catsSlice.reducer;

@@ -15,11 +15,14 @@ export interface Cat {
   other_pets_friendly: number;
   playfulness: number;
   shedding: number;
+  id: string;
+  isLiked: boolean;
 }
 
 export interface InitialStateType {
   initArr: Array<Cat>;
-  isLoading: boolean;
+  curArr: Array<Cat>;
+  loading: boolean;
   error: null | string;
 }
 

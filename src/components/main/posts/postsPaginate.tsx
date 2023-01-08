@@ -3,7 +3,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import { ColorRing } from 'react-loader-spinner';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { fetchCats } from '../../../redux/reducer/catsSlice';
+import { fetchCats, setCurr } from '../../../redux/reducer/catsSlice';
 import { Cat } from '../../../redux/reducer/catsSlice.types';
 import { AppDispatch, RootState } from '../../../redux/store';
 import { Posts } from './posts';
@@ -15,16 +15,20 @@ type postsPerPageType = {
 export const PostsPaginate = ({
   postsPerPage,
 }: postsPerPageType): JSX.Element => {
+  const dispatch = useDispatch<AppDispatch>();
+
   const posts: Array<Cat> = useSelector(
     (state: RootState) => state.cats.initArr
   );
   const loading: boolean = useSelector(
-    (state: RootState) => state.cats.isLoading
+    (state: RootState) => state.cats.loading
   );
-  const [currentPosts, setCurrentPosts] = useState<Cat[]>([]);
-  const [offset, setOffset] = useState<number>(0);
+  const currentPosts: Array<Cat> = useSelector(
+    (state: RootState) => state.cats.curArr
+  );
+  console.log(currentPosts, 'curr');
 
-  const dispatch = useDispatch<AppDispatch>();
+  const [offset, setOffset] = useState<number>(0);
 
   useEffect(() => {
     dispatch(fetchCats());
@@ -32,7 +36,7 @@ export const PostsPaginate = ({
 
   useEffect(() => {
     const endOffset: number = offset + postsPerPage;
-    setCurrentPosts([...currentPosts, ...posts.slice(offset, endOffset)]);
+    dispatch(setCurr([offset, endOffset]));
   }, [posts, offset]);
 
   const handlePageClick = (): void => {
