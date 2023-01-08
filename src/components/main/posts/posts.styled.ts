@@ -43,10 +43,6 @@ export const PostIcons = styled.div`
   padding: 3px 0 0 10px;
 `;
 
-export const PostCounter = styled.div`
-  padding-left: 12px;
-`;
-
 export const PostDescription = styled.span`
   font-weight: normal;
   margin-left: 7px;

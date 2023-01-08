@@ -3,7 +3,7 @@ import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 
 import { link, X_API_KEY } from '../../api/api';
-import { AddCatsType, InitialStateType } from './catsSlice.types';
+import { AddCatsType, Cat, InitialStateType } from './catsSlice.types';
 
 export const fetchCats: any = createAsyncThunk('cats/fetchCats', async () => {
   try {
@@ -21,6 +21,7 @@ export const fetchCats: any = createAsyncThunk('cats/fetchCats', async () => {
 const initialState: InitialStateType = {
   initArr: [],
   curArr: [],
+  counter: 0,
   loading: true,
   error: null,
 };
@@ -37,6 +38,21 @@ const catsSlice = createSlice({
         ...state.curArr,
         ...state.initArr.slice(payload[0], payload[1]),
       ];
+    },
+    toggleIsLiked: (state, action: PayloadAction<any>) => {
+      state.curArr = state.curArr.map((post: Cat) =>
+        post.id === action.payload
+          ? {
+              ...post,
+              isLiked: !post.isLiked,
+            }
+          : post
+      );
+    },
+    launchCounter: state => {
+      state.counter = state.curArr.filter(
+        (post: Cat) => post.isLiked === true
+      ).length;
     },
   },
   extraReducers: builder => {
@@ -59,5 +75,6 @@ const catsSlice = createSlice({
   },
 });
 
-export const { setCats, setCurr } = catsSlice.actions;
+export const { setCats, setCurr, toggleIsLiked, launchCounter } =
+  catsSlice.actions;
 export const catsReducer = catsSlice.reducer;

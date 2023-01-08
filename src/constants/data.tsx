@@ -6,7 +6,7 @@ import {
   LogOutIcon,
   MessagesIcon,
   MoreIcon,
-  NotificationsIcon,
+  SavedIcon,
   ProfileIcon,
   SearchIcon,
   ThemeIcon,
@@ -17,7 +17,7 @@ export const HeaderNavigate: Array<IconNavigateType> = [
   { text: 'Search', icon: <SearchIcon />, link: '' },
   { text: 'Explore', icon: <ExploreIcon />, link: '' },
   { text: 'Messages', icon: <MessagesIcon />, link: '' },
-  { text: 'Notifications', icon: <NotificationsIcon />, link: '' },
+  { text: 'Saved', icon: <SavedIcon />, link: '' },
   { text: 'Create', icon: <CreateIcon />, link: '' },
   { text: 'Profile', icon: <ProfileIcon />, link: '' },
 ];

@@ -3,7 +3,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import { ColorRing } from 'react-loader-spinner';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { fetchCats, setCurr } from '../../../redux/reducer/catsSlice';
+import { setCurr } from '../../../redux/reducer/catsSlice';
 import { Cat } from '../../../redux/reducer/catsSlice.types';
 import { AppDispatch, RootState } from '../../../redux/store';
 import { Posts } from './posts';
@@ -29,10 +29,6 @@ export const PostsPaginate = ({
   console.log(currentPosts, 'curr');
 
   const [offset, setOffset] = useState<number>(0);
-
-  useEffect(() => {
-    dispatch(fetchCats());
-  }, []);
 
   useEffect(() => {
     const endOffset: number = offset + postsPerPage;

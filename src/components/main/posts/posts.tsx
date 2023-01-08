@@ -1,6 +1,8 @@
 import { useContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { useDispatch } from 'react-redux';
 
+import { AppDispatch } from '../../../redux/store';
 import { ThemeContext } from '../../theme/themeProvider';
 import { Cat } from '../../../redux/reducer/catsSlice.types';
 
@@ -12,10 +14,10 @@ import {
   PostBlock,
   BlockUser,
   PostIcons,
-  PostCounter,
   PostDescription,
   PostComment,
 } from './posts.styled';
+import { launchCounter, toggleIsLiked } from '../../../redux/reducer/catsSlice';
 
 type currentPostsType = {
   currentPosts: Array<Cat> | null;
@@ -23,6 +25,12 @@ type currentPostsType = {
 
 export const Posts = ({ currentPosts }: currentPostsType): JSX.Element => {
   const { theme } = useContext(ThemeContext);
+  const dispatch = useDispatch<AppDispatch>();
+
+  const clickLike = (id: string) => {
+    dispatch(toggleIsLiked(id));
+    dispatch(launchCounter());
+  };
 
   return (
     <>
@@ -35,10 +43,12 @@ export const Posts = ({ currentPosts }: currentPostsType): JSX.Element => {
             </BlockHeader>
             <BlockImg src={cat.image_link} loading='lazy' />
             <PostIcons>
-              <LikeIcon />
+              <LikeIcon
+                onClick={() => clickLike(cat.id)}
+                style={{ fill: cat.isLiked ? 'red' : '' }}
+              />
               <CommentIcon />
             </PostIcons>
-            <PostCounter>counter</PostCounter>
             <BlockUser>
               {cat.name.toLowerCase()}
               <PostDescription>origin#{cat.origin}</PostDescription>

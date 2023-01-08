@@ -26,7 +26,7 @@ export const ExploreIcon = styled(HiPhotograph)`
 export const MessagesIcon = styled(HiMail)`
   font-size: 1.6rem;
 `;
-export const NotificationsIcon = styled(HiHeart)`
+export const SavedIcon = styled(HiHeart)`
   font-size: 1.6rem;
 `;
 export const CreateIcon = styled(HiPlusCircle)`
