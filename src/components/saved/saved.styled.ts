@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Text = styled.p`
   text-align: center;
-  color: crimson;
+  font-family: cursive;
 `;
 
 export const PostsWrapper = styled.div`

@@ -39,11 +39,3 @@ export const PopupLogOut: IconNavigateType = {
   icon: <LogOutIcon />,
   link: '',
 };
-
-export const Suggestions = [
-  { img: '', nickname: '', text: 'Suggested for you' },
-  { img: '', nickname: '', text: 'Suggested for you' },
-  { img: '', nickname: '', text: 'Suggested for you' },
-  { img: '', nickname: '', text: 'Suggested for you' },
-  { img: '', nickname: '', text: 'Suggested for you' },
-];
