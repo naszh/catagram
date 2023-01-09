@@ -29,3 +29,11 @@ export const PageTitle = styled.p`
 export const LinkStyled = styled(Link)`
   color: inherit;
 `;
+
+export const ErrorText = styled.p`
+  margin: 30px 0;
+  font-size: 1.1rem;
+  font-family: cursive;
+  text-align: center;
+  letter-spacing: 2px;
+`;

@@ -13,6 +13,7 @@ import { SavedPage } from './pages/savedPage';
 import { SignInPage } from './pages/signinPage';
 import { fetchCats } from './redux/reducer/catsSlice';
 import { AppDispatch } from './redux/store';
+import { ErrorPage } from './pages/errorPage';
 
 const App: FC = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -31,6 +32,7 @@ const App: FC = () => {
           <Route path='/' element={<SignInPage />} />
           <Route path='/signin' element={<Navigate to='/' />} />
           <Route path='/signup' element={<SignUpPage />} />
+          <Route path='*' element={<ErrorPage />} />
         </Routes>
       </Router>
     </>
