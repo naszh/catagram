@@ -9,39 +9,8 @@ import {
   SignNavigateBlock,
   SignPage,
 } from '../../common/common.styled';
+import { signupValidation } from '../helpers';
 import { Terms } from './signup.styled';
-
-const signupValidation = (
-  email: string,
-  fullName: string,
-  password: string,
-  setIsErrorEmail: any,
-  setIsErrorFullName: any,
-  setIsErrorPassword: any,
-  setIsValid: any
-): void => {
-  const minLengthFullName = fullName.length > 3;
-  const emailValid = email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
-  const passwordValid = password.match(
-    /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{5,}$/
-  );
-
-  minLengthFullName && emailValid && passwordValid
-    ? setIsValid(true)
-    : setIsValid(false);
-
-  if (fullName) {
-    minLengthFullName ? setIsErrorFullName(false) : setIsErrorFullName(true);
-  }
-
-  if (email) {
-    emailValid ? setIsErrorEmail(false) : setIsErrorEmail(true);
-  }
-
-  if (password) {
-    passwordValid ? setIsErrorPassword(false) : setIsErrorPassword(true);
-  }
-};
 
 export const SignUpForm = () => {
   const navigate: NavigateFunction = useNavigate();

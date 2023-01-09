@@ -9,21 +9,7 @@ import {
   SignPage,
 } from '../../common/common.styled';
 import { ButtonElement, InputPassword, InputText } from '../../common/common';
-
-const signinValidation = (
-  email: string,
-  password: string,
-  setIsErrorEmail: any,
-  setIsValid: any
-): void => {
-  const emailValid = email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
-
-  if (email) {
-    emailValid ? setIsErrorEmail(false) : setIsErrorEmail(true);
-  }
-
-  emailValid && password.length > 3 ? setIsValid(true) : setIsValid(false);
-};
+import { signinValidation } from '../helpers';
 
 export const SignInForm = () => {
   const navigate: NavigateFunction = useNavigate();

@@ -11,14 +11,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import { SlideStyled, StoryImg, StoryUser } from './stories.styled';
 import { Cat } from '../../../redux/reducer/catsSlice.types';
-
-const slisedName = (text: string): string => {
-  let sliced = text.slice(0, 8);
-  if (sliced.length < text.length) {
-    sliced += '...';
-  }
-  return sliced;
-};
+import { slisedName } from '../../helpers';
 
 export const StoriesList = (): JSX.Element => {
   const catsForStories = useSelector((state: RootState) =>
