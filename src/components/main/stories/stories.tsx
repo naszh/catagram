@@ -11,7 +11,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import { SlideStyled, StoryImg, StoryUser } from './stories.styled';
 import { Cat } from '../../../redux/reducer/catsSlice.types';
-import { slisedName } from '../../helpers';
+import { slisedName } from '../../../helpers';
 
 export const StoriesList = (): JSX.Element => {
   const catsForStories = useSelector((state: RootState) =>

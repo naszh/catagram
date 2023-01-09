@@ -7,11 +7,11 @@ import {
   SignForm,
   SignNavigateBlock,
   SignPage,
-} from '../../common/common.styled';
-import { ButtonElement, InputPassword, InputText } from '../../common/common';
+} from '../common/common.styled';
+import { ButtonElement, InputPassword, InputText } from '../common/common';
 import { signinValidation } from '../helpers';
 
-export const SignInForm = () => {
+export const SignInPage = () => {
   const navigate: NavigateFunction = useNavigate();
 
   const [email, setEmail] = useState<string>('');

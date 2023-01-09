@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { NavigateFunction, useNavigate } from 'react-router-dom';
-import { ButtonElement, InputPassword, InputText } from '../../common/common';
+import { ButtonElement, InputPassword, InputText } from '../common/common';
 import {
   LinkStyled,
   PageTitle,
@@ -8,11 +8,11 @@ import {
   SignForm,
   SignNavigateBlock,
   SignPage,
-} from '../../common/common.styled';
+} from '../common/common.styled';
 import { signupValidation } from '../helpers';
-import { Terms } from './signup.styled';
+import { Terms } from '../components/signup/signup.styled';
 
-export const SignUpForm = () => {
+export const SignUpPage = () => {
   const navigate: NavigateFunction = useNavigate();
 
   const [email, setEmail] = useState<string>('');
