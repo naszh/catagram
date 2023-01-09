@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
 import { NavigateFunction, useNavigate } from 'react-router-dom';
-import { LinkStyled, PageTitle } from '../../common/common.styled';
-import { ButtonElement, InputPassword, InputText } from '../../common/common';
 import {
+  LinkStyled,
+  PageTitle,
+  SignContainer,
   SignForm,
-  SigninContainer,
-  SigninPage,
-  SigninToUp,
-} from './signin.styled';
+  SignNavigateBlock,
+  SignPage,
+} from '../../common/common.styled';
+import { ButtonElement, InputPassword, InputText } from '../../common/common';
 
 const signinValidation = (
   email: string,
@@ -45,8 +46,8 @@ export const SignInForm = () => {
   }, [email, password]);
 
   return (
-    <SigninPage>
-      <SigninContainer>
+    <SignPage>
+      <SignContainer>
         <PageTitle>Catagram</PageTitle>
         <SignForm>
           <InputText
@@ -66,10 +67,10 @@ export const SignInForm = () => {
           />
           <LinkStyled to='/home'>Continue without sign in</LinkStyled>
         </SignForm>
-      </SigninContainer>
-      <SigninToUp>
+      </SignContainer>
+      <SignNavigateBlock>
         Don't have an account? <LinkStyled to='/signup'>Sign up</LinkStyled>
-      </SigninToUp>
-    </SigninPage>
+      </SignNavigateBlock>
+    </SignPage>
   );
 };
