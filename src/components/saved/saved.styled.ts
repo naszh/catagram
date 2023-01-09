@@ -1,18 +1,5 @@
 import styled from 'styled-components';
 
-export const LikedPostsContainer = styled.div`
-  width: 100%;
-`;
-
-export const LikesCounter = styled.div`
-  font-size: 1.3rem;
-  font-family: cursive;
-  text-align: center;
-  text-transform: uppercase;
-  text-decoration: overline;
-  letter-spacing: 5px;
-`;
-
 export const Text = styled.p`
   text-align: center;
   color: crimson;
@@ -21,7 +8,7 @@ export const Text = styled.p`
 export const PostsWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  margin: 20px;
+  margin: 10px;
 `;
 
 export const PostImg = styled.img`

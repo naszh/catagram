@@ -16,7 +16,7 @@ export const HeaderNavigate: Array<IconNavigateType> = [
   { text: 'Home', icon: <HomeIcon />, link: '/' },
   { text: 'Search', icon: <SearchIcon />, link: '' },
   { text: 'Explore', icon: <ExploreIcon />, link: '' },
-  { text: 'Messages', icon: <MessagesIcon />, link: '' },
+  { text: 'Messages', icon: <MessagesIcon />, link: '/messages' },
   { text: 'Saved', icon: <SavedIcon />, link: '/saved' },
   { text: 'Create', icon: <CreateIcon />, link: '' },
   { text: 'Profile', icon: <ProfileIcon />, link: '' },

@@ -1,11 +1,7 @@
 import { useContext } from 'react';
+import { ContainerBox } from '../../common/common.styled';
 import { ThemeContext } from '../theme/themeProvider';
-import {
-  ContainerPosts,
-  ContainerStories,
-  MainComponent,
-  SectionComponent,
-} from './main.styled';
+import { ContainerPosts, MainComponent, SectionComponent } from './main.styled';
 import { PostsPaginate } from './posts/postsPaginate';
 import { StoriesList } from './stories/stories';
 
@@ -15,9 +11,9 @@ export const Main = () => {
   return (
     <MainComponent>
       <SectionComponent>
-        <ContainerStories theme={theme}>
+        <ContainerBox theme={theme}>
           <StoriesList />
-        </ContainerStories>
+        </ContainerBox>
         <ContainerPosts>
           <PostsPaginate postsPerPage={3} />
         </ContainerPosts>

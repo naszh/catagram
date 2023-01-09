@@ -1,16 +1,18 @@
+import { useContext } from 'react';
 import { useSelector } from 'react-redux';
-import { LinkStyled } from '../../common/common.styled';
+import {
+  ContainerBox,
+  LinkStyled,
+  PageTitle,
+  PageWidth,
+} from '../../common/common.styled';
 import { Cat } from '../../redux/reducer/catsSlice.types';
 import { RootState } from '../../redux/store';
-import {
-  LikedPostsContainer,
-  LikesCounter,
-  PostImg,
-  PostsWrapper,
-  Text,
-} from './saved.styled';
+import { ThemeContext } from '../theme/themeProvider';
+import { PostImg, PostsWrapper, Text } from './saved.styled';
 
 export const Saved = () => {
+  const { theme } = useContext(ThemeContext);
   const like = useSelector((state: RootState) => state.cats.counter);
 
   const likedPosts: Array<Cat> = useSelector((state: RootState) =>
@@ -18,9 +20,9 @@ export const Saved = () => {
   );
 
   return (
-    <>
-      <LikedPostsContainer>
-        <LikesCounter>{like} likes</LikesCounter>
+    <PageWidth>
+      <PageTitle>{like} likes</PageTitle>
+      <ContainerBox theme={theme}>
         {likedPosts.length === 0 ? (
           <Text>
             You haven't added any posts to your saved.
@@ -39,7 +41,7 @@ export const Saved = () => {
             ))}
           </PostsWrapper>
         )}
-      </LikedPostsContainer>
-    </>
+      </ContainerBox>
+    </PageWidth>
   );
 };
