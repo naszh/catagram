@@ -1,6 +1,7 @@
 import { FC, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { SignInForm } from './components/signin/signin';
 
 import { HomePage } from './pages/homePage';
 import { MsgsPage } from './pages/msgsPage';
@@ -19,9 +20,10 @@ const App: FC = () => {
     <>
       <Router>
         <Routes>
-          <Route path='/' element={<HomePage />} />
+          <Route path='/home' element={<HomePage />} />
           <Route path='/saved' element={<SavedPage />} />
           <Route path='/messages' element={<MsgsPage />} />
+          <Route path='/' element={<SignInForm />} />
         </Routes>
       </Router>
     </>

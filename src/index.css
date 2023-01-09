@@ -40,3 +40,19 @@ body {
 .swiper-button-next {
   right: -2px !important;
 }
+
+.css-whebh7-MuiInputBase-root-MuiInput-root:after {
+  border-bottom: 2px solid #555555 !important
+}
+
+.css-1c2i806-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
+  color: #555555 !important
+}
+
+.css-jh47zj-MuiButtonBase-root-MuiButton-root.Mui-disabled {
+  background-color: rgba(0, 0, 0, 0.12) !important
+}
+
+.css-jh47zj-MuiButtonBase-root-MuiButton-root {
+  background-color: rgb(45, 155, 240) !important
+}
