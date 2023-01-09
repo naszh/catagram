@@ -1,9 +1,9 @@
 import { FC, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Saved } from './components/saved/saved';
 
-import { HomePage } from './pages/home';
+import { HomePage } from './pages/homePage';
+import { SavedPage } from './pages/savedPage';
 import { fetchCats } from './redux/reducer/catsSlice';
 import { AppDispatch } from './redux/store';
 
@@ -19,7 +19,7 @@ const App: FC = () => {
       <Router>
         <Routes>
           <Route path='/' element={<HomePage />} />
-          <Route path='/saved' element={<Saved />} />
+          <Route path='/saved' element={<SavedPage />} />
         </Routes>
       </Router>
     </>

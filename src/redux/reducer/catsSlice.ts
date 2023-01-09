@@ -34,12 +34,12 @@ const catsSlice = createSlice({
     setCats: (state, { payload }: PayloadAction<AddCatsType>) => {
       state.initArr = payload.catsArr;
     },
-    setCurr: state => {
-      const endOffset: number = state.offset + 3;
+    setCurr: (state, { payload }: PayloadAction<number>) => {
+      const endOffset: number = state.offset + payload;
       state.curArr = [
         ...state.curArr,
         ...state.initArr.slice(state.offset, endOffset),
-      ].filter((el, i, arr) => arr.findIndex(elem => elem.id === el.id) == i);
+      ].filter((el, i, arr) => arr.findIndex(elem => elem.id === el.id) === i);
     },
     setOffset: (state, { payload }: PayloadAction<number>) => {
       state.offset += payload;

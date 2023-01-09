@@ -38,10 +38,18 @@ export const Posts = ({ currentPosts }: currentPostsType): JSX.Element => {
         currentPosts.map((cat: Cat) => (
           <PostBlock key={uuidv4()} theme={theme}>
             <BlockHeader>
-              <BlockHeaderImg src={cat.image_link} loading='lazy' />
+              <BlockHeaderImg
+                src={cat.image_link}
+                alt={`photo of ${cat.name}`}
+                loading='lazy'
+              />
               <BlockUser>{cat.name.toLowerCase()}</BlockUser>
             </BlockHeader>
-            <BlockImg src={cat.image_link} loading='lazy' />
+            <BlockImg
+              src={cat.image_link}
+              alt={`photo of ${cat.name}`}
+              loading='lazy'
+            />
             <PostIcons>
               <LikeIcon
                 onClick={() => clickLike(cat.id)}

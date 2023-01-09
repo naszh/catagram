@@ -29,7 +29,8 @@ export const PostsPaginate = ({
   );
 
   useEffect(() => {
-    dispatch(setCurr());
+    dispatch(setCurr(postsPerPage));
+    // eslint-disable-next-line
   }, [posts, offset]);
 
   const handlePageClick = (): void => {

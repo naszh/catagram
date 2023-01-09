@@ -1,8 +1,14 @@
 import { useSelector } from 'react-redux';
-import { Container } from '../../common/common.styled';
+import { LinkStyled } from '../../common/common.styled';
 import { Cat } from '../../redux/reducer/catsSlice.types';
 import { RootState } from '../../redux/store';
-import { Header } from '../header/header';
+import {
+  LikedPostsContainer,
+  LikesCounter,
+  PostImg,
+  PostsWrapper,
+  Text,
+} from './saved.styled';
 
 export const Saved = () => {
   const like = useSelector((state: RootState) => state.cats.counter);
@@ -13,21 +19,27 @@ export const Saved = () => {
 
   return (
     <>
-      <Header />
-      <Container>
-        <div>
-          {like} likes
-          {likedPosts.length === 0 ? (
-            <p>You haven't added any posts to your saved</p>
-          ) : (
-            <div>
-              {likedPosts.map((post: Cat) => (
-                <div>{post.name}</div>
-              ))}
-            </div>
-          )}
-        </div>
-      </Container>
+      <LikedPostsContainer>
+        <LikesCounter>{like} likes</LikesCounter>
+        {likedPosts.length === 0 ? (
+          <Text>
+            You haven't added any posts to your saved.
+            <br />
+            <LinkStyled to='/'>Go back to the home page</LinkStyled> and like
+            something &#128570;
+          </Text>
+        ) : (
+          <PostsWrapper>
+            {likedPosts.map((post: Cat) => (
+              <PostImg
+                src={post.image_link}
+                alt={`photo of ${post.name}`}
+                title={post.name}
+              />
+            ))}
+          </PostsWrapper>
+        )}
+      </LikedPostsContainer>
     </>
   );
 };
