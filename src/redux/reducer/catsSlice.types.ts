@@ -17,6 +17,8 @@ export interface Cat {
   shedding: number;
   id: string;
   isLiked: boolean;
+  value: string;
+  label: string;
 }
 
 export interface InitialStateType {
