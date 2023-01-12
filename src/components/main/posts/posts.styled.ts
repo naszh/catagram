@@ -1,4 +1,5 @@
 import { Theme } from '@mui/material';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import styled from 'styled-components';
 
 export const PostBlock = styled.div<{ theme: Theme }>`
@@ -21,7 +22,7 @@ export const BlockHeader = styled.div`
   padding-left: 12px;
 `;
 
-export const BlockHeaderImg = styled.img`
+export const BlockHeaderImg = styled(LazyLoadImage)`
   width: 35px;
   height: 35px;
   border-radius: 50%;
@@ -33,9 +34,11 @@ export const BlockUser = styled.p`
   padding-left: 12px;
 `;
 
-export const BlockImg = styled.img`
+export const BlockImg = styled(LazyLoadImage)`
   width: 100%;
   height: 65%;
+  // height: 100%;
+
   object-fit: cover;
 `;
 
