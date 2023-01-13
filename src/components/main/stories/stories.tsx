@@ -15,7 +15,7 @@ import { slisedName } from '../../../helpers';
 
 export const StoriesList = (): JSX.Element => {
   const catsForStories = useSelector((state: RootState) =>
-    state.cats.initArr.slice(0, 5)
+    state.cats.initArr.slice(0, 15)
   );
   const [isModal, setModal] = useState(false);
   const onClose = () => setModal(false);
@@ -30,7 +30,7 @@ export const StoriesList = (): JSX.Element => {
           </SlideStyled>
         ))}
       </Swiper>
-      <StoriesOpen visible={isModal} onClose={onClose} />
+      <StoriesOpen visible={isModal} onClose={onClose} cats={catsForStories} />
     </>
   );
 };
