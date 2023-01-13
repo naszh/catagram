@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+// import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 import { AppDispatch } from '../../../redux/store';
 import { ThemeContext } from '../../theme/themeProvider';
@@ -39,13 +39,6 @@ export const Posts = ({ currentPosts }: currentPostsType): JSX.Element => {
         currentPosts.map((cat: Cat) => (
           <PostBlock key={uuidv4()} theme={theme}>
             <BlockHeader>
-              {/* <LazyLoadImage
-                alt={`photo of ${cat.name}`}
-                effect='blur'
-                height={'35px'}
-                src={cat.image_link} // use normal <img> attributes as props
-                width={'35px'}
-              /> */}
               <BlockHeaderImg
                 src={cat.image_link}
                 alt={`photo of ${cat.name}`}
@@ -56,19 +49,10 @@ export const Posts = ({ currentPosts }: currentPostsType): JSX.Element => {
             <BlockImg
               src={cat.image_link}
               alt={`photo of ${cat.name}`}
+              loading='lazy'
               // placeholderSrc={cat.image_link}
               // effect='blur'
-              // loading='lazy'
             />
-            {/* <LazyLoadImage
-              alt={`photo of ${cat.name}`}
-              placeholderSrc={cat.image_link}
-              effect='blur'
-              height={'100%'}
-              src={cat.image_link}
-              width={'100%'}
-            /> */}
-
             <PostIcons>
               <LikeIcon
                 onClick={() => clickLike(cat.id)}

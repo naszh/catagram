@@ -2,21 +2,33 @@ import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 
-import { link, X_API_KEY } from '../../api/api';
+import { links, X_API_KEY } from '../../api/api';
 import { AddCatsType, Cat, InitialStateType } from './catsSlice.types';
 
-export const fetchCats: any = createAsyncThunk('cats/fetchCats', async () => {
-  try {
-    const response = await axios.get(link, {
-      headers: {
-        'X-Api-Key': `${X_API_KEY}`,
-      },
-    });
-    return response.data;
-  } catch (err) {
-    console.log(err);
+export const fetchCats: any = createAsyncThunk(
+  'cats/fetchCats',
+  async (offset: number) => {
+    try {
+      const requests = links.map(link =>
+        axios.get(link, {
+          params: {
+            offset: offset,
+          },
+          headers: {
+            'X-Api-Key': `${X_API_KEY}`,
+          },
+        })
+      );
+
+      const response = await Promise.all(requests).then(r =>
+        r.map(resp => resp.data).flat()
+      );
+      return response;
+    } catch (err) {
+      console.log(err);
+    }
   }
-});
+);
 
 const initialState: InitialStateType = {
   initArr: [],
