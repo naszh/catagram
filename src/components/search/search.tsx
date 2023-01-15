@@ -1,20 +1,24 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { Paragraph } from '../../common/common.styled';
 import { Cat } from '../../redux/reducer/catsSlice.types';
 import { Posts } from '../main/posts/posts';
+import { ThemeContext } from '../theme/themeProvider';
+import { InputSearch } from './search.styled';
 
 interface SearchProp {
   value: Cat[];
 }
 
 export const Search = ({ value }: SearchProp): JSX.Element => {
-  const [name, setName] = useState('');
+  const { theme } = useContext(ThemeContext);
+  const [name, setName] = useState<string>('');
   const [foundCats, setfoundCats] = useState<Cat[]>(value);
 
   const searchResults = (e: React.ChangeEvent<HTMLInputElement>) => {
     const keyword = e.target.value;
 
     if (keyword !== '') {
-      const results = value.filter((cat: Cat) => {
+      const results: Cat[] = value.filter((cat: Cat) => {
         return cat.name.toLowerCase().startsWith(keyword.toLowerCase());
       });
       document.querySelector('.posts')!.setAttribute('id', 'empty');
@@ -27,22 +31,23 @@ export const Search = ({ value }: SearchProp): JSX.Element => {
   };
 
   return (
-    <div>
-      <input
+    <>
+      <InputSearch
         type='search'
         value={name}
         onChange={searchResults}
-        placeholder='Search'
+        placeholder='Search for a cat by breed'
+        theme={theme}
       />
       {name && (
-        <div>
+        <>
           {foundCats && foundCats.length > 0 ? (
             <Posts currentPosts={foundCats} />
           ) : (
-            <p>No results found!</p>
+            <Paragraph>No results found!</Paragraph>
           )}
-        </div>
+        </>
       )}
-    </div>
+    </>
   );
 };

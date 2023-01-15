@@ -37,3 +37,7 @@ export const ErrorText = styled.p`
   text-align: center;
   letter-spacing: 2px;
 `;
+
+export const Paragraph = styled.p`
+  margin: 0;
+`;
