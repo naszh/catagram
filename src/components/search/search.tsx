@@ -1,45 +1,45 @@
 import { useState } from 'react';
 import { Cat } from '../../redux/reducer/catsSlice.types';
+import { Posts } from '../main/posts/posts';
 
-export const Search = ({ value }: { value: Cat[] }) => {
+interface SearchProp {
+  value: Cat[];
+}
+
+export const Search = ({ value }: SearchProp): JSX.Element => {
   const [name, setName] = useState('');
   const [foundCats, setfoundCats] = useState<Cat[]>(value);
 
-  const filter = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const searchResults = (e: React.ChangeEvent<HTMLInputElement>) => {
     const keyword = e.target.value;
 
     if (keyword !== '') {
       const results = value.filter((cat: Cat) => {
         return cat.name.toLowerCase().startsWith(keyword.toLowerCase());
       });
+      document.querySelector('.posts')!.setAttribute('id', 'empty');
       setfoundCats(results);
     } else {
+      document.querySelector('#empty')?.removeAttribute('id');
       setfoundCats([]);
     }
-    console.log(keyword);
     setName(keyword);
   };
 
   return (
-    <div className='container'>
+    <div>
       <input
         type='search'
         value={name}
-        onChange={filter}
-        className='input'
-        placeholder='Filter'
+        onChange={searchResults}
+        placeholder='Search'
       />
       {name && (
-        <div className='user-list'>
+        <div>
           {foundCats && foundCats.length > 0 ? (
-            foundCats.map(user => (
-              <li key={user.id} className='user'>
-                <span className='user-id'>{user.origin}</span>
-                <span className='user-name'>{user.name}</span>
-              </li>
-            ))
+            <Posts currentPosts={foundCats} />
           ) : (
-            <h1>No results found!</h1>
+            <p>No results found!</p>
           )}
         </div>
       )}
