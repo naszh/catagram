@@ -57,7 +57,7 @@ const catsSlice = createSlice({
       state.offset += payload;
     },
     toggleIsLiked: (state, action: PayloadAction<any>) => {
-      state.curArr = state.curArr.map((post: Cat) =>
+      state.initArr = state.initArr.map((post: Cat) =>
         post.id === action.payload
           ? {
               ...post,
@@ -67,7 +67,7 @@ const catsSlice = createSlice({
       );
     },
     launchCounter: state => {
-      state.counter = state.curArr.filter(
+      state.counter = state.initArr.filter(
         (post: Cat) => post.isLiked === true
       ).length;
     },

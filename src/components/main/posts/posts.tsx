@@ -1,9 +1,9 @@
 import { useContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 // import { LazyLoadImage } from 'react-lazy-load-image-component';
 
-import { AppDispatch } from '../../../redux/store';
+import { AppDispatch, RootState } from '../../../redux/store';
 import { ThemeContext } from '../../theme/themeProvider';
 import { Cat } from '../../../redux/reducer/catsSlice.types';
 
@@ -33,11 +33,13 @@ export const Posts = ({ currentPosts }: currentPostsType): JSX.Element => {
     dispatch(launchCounter());
   };
 
+  const likedPosts: any = useSelector((state: RootState) => state.cats.initArr);
+
   return (
     <>
       {currentPosts &&
         currentPosts.map((cat: Cat) => (
-          <PostBlock key={uuidv4()} theme={theme}>
+          <PostBlock key={uuidv4()} theme={theme} className='one'>
             <BlockHeader>
               <BlockHeaderImg
                 src={cat.image_link}
@@ -56,7 +58,9 @@ export const Posts = ({ currentPosts }: currentPostsType): JSX.Element => {
             <PostIcons>
               <LikeIcon
                 onClick={() => clickLike(cat.id)}
-                style={{ fill: cat.isLiked ? 'red' : '' }}
+                style={{
+                  fill: cat.isLiked ? 'red' : '',
+                }}
               />
               <CommentIcon />
             </PostIcons>

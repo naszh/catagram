@@ -16,7 +16,7 @@ export const Saved = () => {
   const like = useSelector((state: RootState) => state.cats.counter);
 
   const likedPosts: Array<Cat> = useSelector((state: RootState) =>
-    state.cats.curArr.filter((post: Cat) => post.id && post.isLiked === true)
+    state.cats.initArr.filter((post: Cat) => post.id && post.isLiked === true)
   );
 
   return (
