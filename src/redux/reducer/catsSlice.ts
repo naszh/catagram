@@ -56,7 +56,7 @@ const catsSlice = createSlice({
     setOffset: (state, { payload }: PayloadAction<number>) => {
       state.offset += payload;
     },
-    toggleIsLiked: (state, action: PayloadAction<any>) => {
+    toggleIsLiked: (state, action: PayloadAction<string>) => {
       state.initArr = state.initArr.map((post: Cat) =>
         post.id === action.payload
           ? {
