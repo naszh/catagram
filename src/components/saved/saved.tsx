@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   ContainerBox,
@@ -45,6 +46,7 @@ export const Saved = () => {
                 src={post.image_link}
                 alt={`photo of ${post.name}`}
                 title={post.name}
+                key={uuidv4()}
                 onClick={() => {
                   HandleClickRemove(post.id);
                 }}

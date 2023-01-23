@@ -1,7 +1,6 @@
-import { FC, useContext, useEffect, useMemo, useState } from 'react';
+import { FC, useContext, useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useDispatch, useSelector } from 'react-redux';
-// import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 import { AppDispatch, RootState } from '../../../redux/store';
 import { ThemeContext } from '../../theme/themeProvider';
@@ -25,6 +24,7 @@ import {
   toggleIsLiked,
 } from '../../../redux/reducer/catsSlice';
 import { Paragraph } from '../../../common/common.styled';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 type CurrentPostsType = {
   currentPosts: Array<Cat> | null;
@@ -77,8 +77,7 @@ export const Posts: FC<CurrentPostsType> = ({ currentPosts }): JSX.Element => {
               src={cat.image_link}
               alt={`photo of ${cat.name}`}
               loading='lazy'
-              // placeholderSrc={cat.image_link}
-              // effect='blur'
+              effect='blur'
             />
             <PostIcons>
               <LikeIcon
