@@ -40,4 +40,5 @@ export const ErrorText = styled.p`
 
 export const Paragraph = styled.p`
   margin: 0;
+  text-align: center;
 `;

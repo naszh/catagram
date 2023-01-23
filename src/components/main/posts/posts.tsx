@@ -33,6 +33,7 @@ type CurrentPostsType = {
 export const Posts: FC<CurrentPostsType> = ({ currentPosts }): JSX.Element => {
   const { theme } = useContext(ThemeContext);
   const dispatch = useDispatch<AppDispatch>();
+  const [searchTerm, setSearchTerm] = useState('');
   const [isClicked, setIsCliked] = useState(false);
 
   const clickLike = (id: string) => {
@@ -40,10 +41,9 @@ export const Posts: FC<CurrentPostsType> = ({ currentPosts }): JSX.Element => {
     dispatch(launchCounter());
     setIsCliked(bool => !bool);
   };
+
   const offset: number = useSelector((state: RootState) => state.cats.offset);
   const endOffset: number = offset + 3;
-
-  const [searchTerm, setSearchTerm] = useState('');
 
   const changeSearchTerm = (e: any) => {
     setSearchTerm(e.target.value);
@@ -64,7 +64,7 @@ export const Posts: FC<CurrentPostsType> = ({ currentPosts }): JSX.Element => {
       />
       {currentPosts && currentPosts.length > 0 ? (
         currentPosts.slice(0, endOffset).map((cat: Cat) => (
-          <PostBlock key={uuidv4()} theme={theme} className='one'>
+          <PostBlock key={uuidv4()} theme={theme}>
             <BlockHeader>
               <BlockHeaderImg
                 src={cat.image_link}

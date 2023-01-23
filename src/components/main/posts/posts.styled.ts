@@ -1,4 +1,5 @@
 import { Theme } from '@mui/material';
+import { ColorRing } from 'react-loader-spinner';
 // import { LazyLoadImage } from 'react-lazy-load-image-component';
 import styled from 'styled-components';
 
@@ -63,9 +64,13 @@ export const InputSearch = styled.input<{ theme: Theme }>`
   background-color: ${({ theme }) =>
     theme === 'light' ? '#FFFFFF' : '#000000'};
   padding: 5px;
+  width: 100%;
+  margin-bottom: 20px;
   color: inherit;
   &:focus-visible {
     outline-color: ${({ theme }) =>
       theme === 'light' ? 'rgba(0,0,0,0.3)' : 'rgba(255,255,255,0.3)'};
   }
 `;
+
+export const ColorRingStyled = { display: 'block', margin: '0 auto' };
