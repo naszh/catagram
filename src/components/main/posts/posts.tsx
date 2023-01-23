@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { FC, useContext, useEffect, useMemo, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useDispatch, useSelector } from 'react-redux';
 // import { LazyLoadImage } from 'react-lazy-load-image-component';
@@ -17,28 +17,53 @@ import {
   PostIcons,
   PostDescription,
   PostComment,
+  InputSearch,
 } from './posts.styled';
-import { launchCounter, toggleIsLiked } from '../../../redux/reducer/catsSlice';
+import {
+  launchCounter,
+  searchByName,
+  toggleIsLiked,
+} from '../../../redux/reducer/catsSlice';
+import { Paragraph } from '../../../common/common.styled';
 
-type currentPostsType = {
+type CurrentPostsType = {
   currentPosts: Array<Cat> | null;
 };
 
-export const Posts = ({ currentPosts }: currentPostsType): JSX.Element => {
+export const Posts: FC<CurrentPostsType> = ({ currentPosts }): JSX.Element => {
   const { theme } = useContext(ThemeContext);
   const dispatch = useDispatch<AppDispatch>();
+  const [isClicked, setIsCliked] = useState(false);
 
   const clickLike = (id: string) => {
     dispatch(toggleIsLiked(id));
     dispatch(launchCounter());
+    setIsCliked(bool => !bool);
+  };
+  const offset: number = useSelector((state: RootState) => state.cats.offset);
+  const endOffset: number = offset + 3;
+
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const changeSearchTerm = (e: any) => {
+    setSearchTerm(e.target.value);
   };
 
-  const likedPosts: any = useSelector((state: RootState) => state.cats.initArr);
+  useEffect(() => {
+    dispatch(searchByName(searchTerm));
+  }, [searchTerm, dispatch, isClicked]);
 
   return (
     <>
-      {currentPosts &&
-        currentPosts.map((cat: Cat) => (
+      <InputSearch
+        type='search'
+        value={searchTerm}
+        placeholder='Search for a cat by breed'
+        onChange={changeSearchTerm}
+        theme={theme}
+      />
+      {currentPosts && currentPosts.length > 0 ? (
+        currentPosts.slice(0, endOffset).map((cat: Cat) => (
           <PostBlock key={uuidv4()} theme={theme} className='one'>
             <BlockHeader>
               <BlockHeaderImg
@@ -70,7 +95,10 @@ export const Posts = ({ currentPosts }: currentPostsType): JSX.Element => {
             </BlockUser>
             <PostComment>add a comment</PostComment>
           </PostBlock>
-        ))}
+        ))
+      ) : (
+        <Paragraph>No results found!</Paragraph>
+      )}
     </>
   );
 };

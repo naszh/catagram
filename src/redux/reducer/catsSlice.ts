@@ -32,7 +32,7 @@ export const fetchCats: any = createAsyncThunk(
 
 const initialState: InitialStateType = {
   initArr: [],
-  curArr: [],
+  filteredArr: [],
   offset: 0,
   counter: 0,
   loading: true,
@@ -46,12 +46,14 @@ const catsSlice = createSlice({
     setCats: (state, { payload }: PayloadAction<AddCatsType>) => {
       state.initArr = payload.catsArr;
     },
-    setCurr: (state, { payload }: PayloadAction<number>) => {
-      const endOffset: number = state.offset + payload;
-      state.curArr = [
-        ...state.curArr,
-        ...state.initArr.slice(state.offset, endOffset),
-      ].filter((el, i, arr) => arr.findIndex(elem => elem.id === el.id) === i);
+    searchByName: (state, { payload }: PayloadAction<string>) => {
+      const initArr = state.initArr.filter((cat: Cat) =>
+        cat.name.toLowerCase().includes(payload.toLowerCase())
+      );
+      return {
+        ...state,
+        filteredArr: payload.length > 0 ? initArr : [...state.initArr],
+      };
     },
     setOffset: (state, { payload }: PayloadAction<number>) => {
       state.offset += payload;
@@ -92,6 +94,11 @@ const catsSlice = createSlice({
   },
 });
 
-export const { setCats, setCurr, setOffset, toggleIsLiked, launchCounter } =
-  catsSlice.actions;
+export const {
+  setCats,
+  searchByName,
+  setOffset,
+  toggleIsLiked,
+  launchCounter,
+} = catsSlice.actions;
 export const catsReducer = catsSlice.reducer;
