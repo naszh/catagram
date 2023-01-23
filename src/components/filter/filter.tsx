@@ -7,6 +7,7 @@ interface FilterProp {
 }
 
 export const Filter = ({ options }: FilterProp): JSX.Element => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   const onMenuOpen = () => setIsMenuOpen(true);
@@ -16,6 +17,7 @@ export const Filter = ({ options }: FilterProp): JSX.Element => {
 
   const handleSelect = (e: SingleValue<Cat>) => {
     console.log(e?.name);
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     content!.innerHTML = `
       <div>${e?.name}</div>
       <div>${e?.origin}</div>

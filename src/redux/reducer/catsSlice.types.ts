@@ -29,7 +29,3 @@ export interface InitialStateType {
   loading: boolean;
   error: null | string;
 }
-
-export type AddCatsType = {
-  catsArr: Array<Cat>;
-};

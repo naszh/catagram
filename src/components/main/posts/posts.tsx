@@ -45,7 +45,7 @@ export const Posts: FC<CurrentPostsType> = ({ currentPosts }): JSX.Element => {
   const offset: number = useSelector((state: RootState) => state.cats.offset);
   const endOffset: number = offset + 3;
 
-  const changeSearchTerm = (e: any) => {
+  const changeSearchTerm = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
   };
 

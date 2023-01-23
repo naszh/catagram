@@ -3,8 +3,9 @@ import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 
 import { links, X_API_KEY } from '../../api/api';
-import { AddCatsType, Cat, InitialStateType } from './catsSlice.types';
+import { Cat, InitialStateType } from './catsSlice.types';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const fetchCats: any = createAsyncThunk(
   'cats/fetchCats',
   async (offset: number) => {
@@ -43,9 +44,6 @@ const catsSlice = createSlice({
   name: 'cats',
   initialState,
   reducers: {
-    setCats: (state, { payload }: PayloadAction<AddCatsType>) => {
-      state.initArr = payload.catsArr;
-    },
     searchByName: (state, { payload }: PayloadAction<string>) => {
       const initArr = state.initArr.filter((cat: Cat) =>
         cat.name.toLowerCase().includes(payload.toLowerCase())
@@ -77,6 +75,7 @@ const catsSlice = createSlice({
   extraReducers: builder => {
     builder.addCase(fetchCats.pending, state => {
       state.loading = true;
+      state.error = null;
     });
     builder.addCase(fetchCats.fulfilled, (state, action) => {
       state.loading = false;
@@ -94,11 +93,6 @@ const catsSlice = createSlice({
   },
 });
 
-export const {
-  setCats,
-  searchByName,
-  setOffset,
-  toggleIsLiked,
-  launchCounter,
-} = catsSlice.actions;
+export const { searchByName, setOffset, toggleIsLiked, launchCounter } =
+  catsSlice.actions;
 export const catsReducer = catsSlice.reducer;

@@ -34,7 +34,7 @@ export const Saved = () => {
       <ContainerBox theme={theme}>
         {likedPosts.length === 0 ? (
           <Text>
-            You haven't added any posts to your saved.
+            You haven&apos;t added any posts to your saved.
             <br />
             <LinkStyled to='/'>Go back to the home page</LinkStyled> and like
             something &#128570;

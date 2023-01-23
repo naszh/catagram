@@ -14,7 +14,8 @@ export const SignInPage = () => {
         <SignInForm />
       </SignContainer>
       <SignNavigateBlock>
-        Don't have an account? <LinkStyled to='/signup'>Sign up</LinkStyled>
+        Don&apos;t have an account?{' '}
+        <LinkStyled to='/signup'>Sign up</LinkStyled>
       </SignNavigateBlock>
     </SignPage>
   );

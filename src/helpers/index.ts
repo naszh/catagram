@@ -9,8 +9,8 @@ export const slisedName = (text: string): string => {
 export const signinValidation = (
   email: string,
   password: string,
-  setIsErrorEmail: any,
-  setIsValid: any
+  setIsErrorEmail: (arg0: boolean) => void,
+  setIsValid: (arg0: boolean) => void
 ): void => {
   const emailValid = email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
 
@@ -25,10 +25,10 @@ export const signupValidation = (
   email: string,
   fullName: string,
   password: string,
-  setIsErrorEmail: any,
-  setIsErrorFullName: any,
-  setIsErrorPassword: any,
-  setIsValid: any
+  setIsErrorEmail: (arg0: boolean) => void,
+  setIsErrorFullName: (arg0: boolean) => void,
+  setIsErrorPassword: (arg0: boolean) => void,
+  setIsValid: (arg0: boolean) => void
 ): void => {
   const minLengthFullName = fullName.length > 3;
   const emailValid = email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);

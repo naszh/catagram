@@ -8,7 +8,7 @@ export const ErrorPage = () => {
       <Header />
       <Container>
         <ErrorText>
-          Sorry, this page isn't available.
+          Sorry, this page isn&apos;t available.
           <br />
           The link you followed may be broken, or the page may have been removed
           <br /> <LinkStyled to='/'>Go back to Catagram</LinkStyled>

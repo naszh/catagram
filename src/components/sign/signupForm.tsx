@@ -9,6 +9,7 @@ export const SignUpForm = () => {
 
   const [email, setEmail] = useState<string>('');
   const [fullName, setFullName] = useState<string>('');
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [isErrorEmail, setIsErrorEmail] = useState<boolean>(false);

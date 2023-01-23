@@ -38,6 +38,7 @@ export const PostsPaginate: FC<PostsPerPageType> = ({
         <InfiniteScroll
           dataLength={offset + postsPerPage}
           next={handlePageClick}
+          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
           hasMore={offset + postsPerPage < posts!.length}
           scrollThreshold={1}
           loader={<ColorRing />}
