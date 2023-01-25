@@ -77,7 +77,6 @@ export const Posts: FC<CurrentPostsType> = ({ currentPosts }): JSX.Element => {
               src={cat.image_link}
               alt={`photo of ${cat.name}`}
               loading='lazy'
-              effect='blur'
             />
             <PostIcons>
               <LikeIcon

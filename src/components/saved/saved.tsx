@@ -11,7 +11,7 @@ import { launchCounter, toggleIsLiked } from '../../redux/reducer/catsSlice';
 import { Cat } from '../../redux/reducer/catsSlice.types';
 import { AppDispatch, RootState } from '../../redux/store';
 import { ThemeContext } from '../theme/themeProvider';
-import { PostImg, PostsWrapper, Text } from './saved.styled';
+import { PostImg, PostImgWrapper, PostsWrapper, Text } from './saved.styled';
 
 export const Saved = () => {
   const { theme } = useContext(ThemeContext);
@@ -42,15 +42,19 @@ export const Saved = () => {
         ) : (
           <PostsWrapper>
             {likedPosts.map((post: Cat) => (
-              <PostImg
-                src={post.image_link}
-                alt={`photo of ${post.name}`}
-                title={post.name}
+              <PostImgWrapper
                 key={uuidv4()}
                 onClick={() => {
                   HandleClickRemove(post.id);
                 }}
-              />
+              >
+                <PostImg
+                  src={post.image_link}
+                  alt={`photo of ${post.name}`}
+                  title={post.name}
+                  key={uuidv4()}
+                />
+              </PostImgWrapper>
             ))}
           </PostsWrapper>
         )}

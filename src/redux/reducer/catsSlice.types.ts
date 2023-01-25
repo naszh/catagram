@@ -24,6 +24,8 @@ export interface Cat {
 export interface InitialStateType {
   initArr: Array<Cat>;
   filteredArr: Array<Cat> | null;
+  stories: Array<Cat>;
+  storyImage: string;
   offset: number;
   counter: number;
   loading: boolean;

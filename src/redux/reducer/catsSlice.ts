@@ -34,6 +34,8 @@ export const fetchCats: any = createAsyncThunk(
 const initialState: InitialStateType = {
   initArr: [],
   filteredArr: [],
+  stories: [],
+  storyImage: '',
   offset: 0,
   counter: 0,
   loading: true,
@@ -71,6 +73,9 @@ const catsSlice = createSlice({
         (post: Cat) => post.isLiked === true
       ).length;
     },
+    getStoryImg: (state, { payload }: PayloadAction<string>) => {
+      state.storyImage = payload;
+    },
   },
   extraReducers: builder => {
     builder.addCase(fetchCats.pending, state => {
@@ -85,6 +90,9 @@ const catsSlice = createSlice({
         id: uuidv4(),
         isLiked: false,
       }));
+      state.stories = [...state.initArr]
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 13);
     });
     builder.addCase(fetchCats.rejected, (state, action) => {
       state.loading = false;
@@ -93,6 +101,11 @@ const catsSlice = createSlice({
   },
 });
 
-export const { searchByName, setOffset, toggleIsLiked, launchCounter } =
-  catsSlice.actions;
+export const {
+  searchByName,
+  setOffset,
+  toggleIsLiked,
+  launchCounter,
+  getStoryImg,
+} = catsSlice.actions;
 export const catsReducer = catsSlice.reducer;
