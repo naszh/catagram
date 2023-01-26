@@ -12,7 +12,7 @@ import 'swiper/css/navigation';
 import { SlideStyled, StoryImg, StoryUser } from './stories.styled';
 import { Cat } from '../../../redux/reducer/catsSlice.types';
 import { slisedName } from '../../../helpers';
-import { getStoryImg } from '../../../redux/reducer/catsSlice';
+import { getStoryImg, toggleIsViewed } from '../../../redux/reducer/catsSlice';
 
 export const StoriesList = (): JSX.Element => {
   const dispatch = useDispatch<AppDispatch>();
@@ -29,10 +29,17 @@ export const StoriesList = (): JSX.Element => {
             key={uuidv4()}
             onClick={() => {
               dispatch(getStoryImg(story.image_link));
+              dispatch(toggleIsViewed(story.id));
               setModal(true);
             }}
           >
-            <StoryImg src={story.image_link} loading='lazy' />
+            <StoryImg
+              src={story.image_link}
+              loading='lazy'
+              style={{
+                border: story.isViewed ? 'none' : '3px solid darkseagreen',
+              }}
+            />
             <StoryUser>{slisedName(story.name.toLowerCase())}</StoryUser>
           </SlideStyled>
         ))}

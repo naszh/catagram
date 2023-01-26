@@ -9,8 +9,8 @@ export const SlideStyled = styled(SwiperSlide)`
 `;
 
 export const StoryImg = styled.img`
-  width: 60px;
-  height: 60px;
+  width: 65px;
+  height: 65px;
   border-radius: 50%;
   object-fit: cover;
 `;

@@ -19,6 +19,7 @@ export interface Cat {
   isLiked: boolean;
   value: string;
   label: string;
+  isViewed: boolean;
 }
 
 export interface InitialStateType {

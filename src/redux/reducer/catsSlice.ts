@@ -76,6 +76,16 @@ const catsSlice = createSlice({
     getStoryImg: (state, { payload }: PayloadAction<string>) => {
       state.storyImage = payload;
     },
+    toggleIsViewed: (state, action: PayloadAction<string>) => {
+      state.stories = state.stories.map((post: Cat) =>
+        post.id === action.payload
+          ? {
+              ...post,
+              isViewed: true,
+            }
+          : post
+      );
+    },
   },
   extraReducers: builder => {
     builder.addCase(fetchCats.pending, state => {
@@ -89,6 +99,7 @@ const catsSlice = createSlice({
         ...arr,
         id: uuidv4(),
         isLiked: false,
+        isViewed: false,
       }));
       state.stories = [...state.initArr]
         .sort(() => Math.random() - 0.5)
@@ -107,5 +118,6 @@ export const {
   toggleIsLiked,
   launchCounter,
   getStoryImg,
+  toggleIsViewed,
 } = catsSlice.actions;
 export const catsReducer = catsSlice.reducer;
