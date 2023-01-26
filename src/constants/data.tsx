@@ -1,7 +1,7 @@
 import { IconNavigateType } from './data.types';
 import {
   CreateIcon,
-  ExploreIcon,
+  // ExploreIcon,
   HomeIcon,
   LogOutIcon,
   MessagesIcon,
@@ -15,7 +15,7 @@ import {
 export const HeaderNavigate: Array<IconNavigateType> = [
   { text: 'Home', icon: <HomeIcon />, link: '/home' },
   { text: 'Search', icon: <SearchIcon />, link: '/search' },
-  { text: 'Explore', icon: <ExploreIcon />, link: '' },
+  // { text: 'Explore', icon: <ExploreIcon />, link: '' },
   { text: 'Messages', icon: <MessagesIcon />, link: '/messages' },
   { text: 'Saved', icon: <SavedIcon />, link: '/saved' },
   { text: 'Create', icon: <CreateIcon />, link: '' },
