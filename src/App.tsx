@@ -16,7 +16,7 @@ import { AppDispatch } from './redux/store';
 import { ErrorPage } from './pages/errorPage';
 import { SearchPage } from './pages/searchPage';
 
-const App: FC = () => {
+export const App: FC = () => {
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
@@ -34,11 +34,10 @@ const App: FC = () => {
           <Route path='/signin' element={<Navigate to='/' />} />
           <Route path='/signup' element={<SignUpPage />} />
           <Route path='/search' element={<SearchPage />} />
+          <Route path='/search/:name' element={<SearchPage />} />
           <Route path='*' element={<ErrorPage />} />
         </Routes>
       </Router>
     </>
   );
 };
-
-export default App;

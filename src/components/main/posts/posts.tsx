@@ -25,6 +25,7 @@ import {
 } from '../../../redux/reducer/catsSlice';
 import { Paragraph } from '../../../common/common.styled';
 import 'react-lazy-load-image-component/src/effects/blur.css';
+import { LinkTo } from '../../filter/filter.styled';
 
 type CurrentPostsType = {
   currentPosts: Array<Cat> | null;
@@ -71,7 +72,9 @@ export const Posts: FC<CurrentPostsType> = ({ currentPosts }): JSX.Element => {
                 alt={`photo of ${cat.name}`}
                 loading='lazy'
               />
-              <BlockUser>{cat.name.toLowerCase()}</BlockUser>
+              <LinkTo to={`/search/${cat.name}`}>
+                <BlockUser>{cat.name.toLowerCase()}</BlockUser>
+              </LinkTo>
             </BlockHeader>
             <BlockImg
               src={cat.image_link}
@@ -88,7 +91,9 @@ export const Posts: FC<CurrentPostsType> = ({ currentPosts }): JSX.Element => {
               <CommentIcon />
             </PostIcons>
             <BlockUser>
-              {cat.name.toLowerCase()}
+              <LinkTo to={`/search/${cat.name}`}>
+                {cat.name.toLowerCase()}
+              </LinkTo>
               <PostDescription>origin#{cat.origin}</PostDescription>
             </BlockUser>
             <PostComment>add a comment</PostComment>

@@ -18,7 +18,7 @@ export interface Cat {
   id: string;
   isLiked: boolean;
   value: string;
-  label: string;
+  label: string | JSX.Element;
   isViewed: boolean;
 }
 

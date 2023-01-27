@@ -1,5 +1,15 @@
 import styled from 'styled-components';
 import Select from 'react-select';
+import { Link } from 'react-router-dom';
+
+export const LinkTo = styled(Link)`
+  color: inherit;
+  text-decoration: none;
+`;
+
+export const LinkList = styled(LinkTo)`
+  display: block;
+`;
 
 export const SelectStyled = styled(Select)`
   margin: 10px auto;
