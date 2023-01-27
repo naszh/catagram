@@ -24,7 +24,6 @@ export const Filter = ({ name }: any): JSX.Element => {
   );
   const catInit = catsFilterNames.filter(cat => cat.name === name)[0];
   const [cat, setCat] = useState<Cat>(catInit);
-  console.log(catInit);
 
   return (
     <ContainerBox theme={theme}>

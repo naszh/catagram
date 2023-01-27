@@ -15,7 +15,11 @@ export const FilteredItem = ({ cat }: FilteredItemProp) => {
   return (
     <Container>
       <ForImg>
-        <FilteredImage src={cat.image_link} loading='lazy' />
+        <FilteredImage
+          src={cat.image_link}
+          loading='lazy'
+          alt={`photo of ${cat.name}`}
+        />
       </ForImg>
       <Details>
         <Text>origin: {cat.origin}</Text>
