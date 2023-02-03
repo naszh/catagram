@@ -2,9 +2,9 @@ import { FC } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { ColorRing } from 'react-loader-spinner';
 import { useDispatch, useSelector } from 'react-redux';
+import { setOffset } from '../../../redux/reducers/cats/catsSlice';
 
-import { setOffset } from '../../../redux/reducer/catsSlice';
-import { Cat } from '../../../redux/reducer/catsSlice.types';
+import { Cat } from '../../../redux/reducers/cats/catsSlice.types';
 import { AppDispatch, RootState } from '../../../redux/store';
 import { Posts } from './posts';
 import { ColorRingStyled } from './posts.styled';

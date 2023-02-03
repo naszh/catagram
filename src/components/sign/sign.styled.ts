@@ -12,7 +12,7 @@ export const SignContainer = styled.div`
   padding: 40px;
 `;
 
-export const SignForm = styled.div`
+export const SignForm = styled.form`
   display: flex;
   flex-direction: column;
   margin: 40px 0 0;

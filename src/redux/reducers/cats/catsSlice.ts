@@ -1,8 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
-
-import { links, X_API_KEY } from '../../api/api';
+import { links, X_API_KEY } from '../../../api/api';
 import { Cat, InitialStateType } from './catsSlice.types';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

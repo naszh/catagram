@@ -10,9 +10,12 @@ import { AppDispatch, RootState } from '../../../redux/store';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { SlideStyled, StoryImg, StoryUser } from './stories.styled';
-import { Cat } from '../../../redux/reducer/catsSlice.types';
+import { Cat } from '../../../redux/reducers/cats/catsSlice.types';
 import { slisedName } from '../../../helpers';
-import { getStoryImg, toggleIsViewed } from '../../../redux/reducer/catsSlice';
+import {
+  getStoryImg,
+  toggleIsViewed,
+} from '../../../redux/reducers/cats/catsSlice';
 
 export const StoriesList = (): JSX.Element => {
   const dispatch = useDispatch<AppDispatch>();

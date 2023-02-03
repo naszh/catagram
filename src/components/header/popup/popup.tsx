@@ -5,9 +5,15 @@ import { ItemText } from '../header.styled';
 import { Item, PopupMenu } from './popup.styled';
 import { useContext } from 'react';
 import { ThemeContext } from '../../theme/themeProvider';
+import { useDispatch } from 'react-redux';
+import { logout } from '../../../redux/reducers/auth/authSlice';
+import { NavigateFunction, useNavigate } from 'react-router-dom';
 
 export const PopupMore = () => {
+  const navigate: NavigateFunction = useNavigate();
+  const dispatch = useDispatch();
   const { toggleTheme } = useContext(ThemeContext);
+
   return (
     <Menu
       menuButton={
@@ -21,7 +27,12 @@ export const PopupMore = () => {
         {PopupSwitch.text}
         {PopupSwitch.icon}
       </Item>
-      <Item>
+      <Item
+        onClick={async () => {
+          await dispatch(logout());
+          navigate('/signin', { replace: true });
+        }}
+      >
         {PopupLogOut.text}
         {PopupLogOut.icon}
       </Item>

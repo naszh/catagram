@@ -1,11 +1,14 @@
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { NavigateFunction, useNavigate } from 'react-router-dom';
 import { ButtonElement, InputPassword, InputText } from '../../common/common';
 import { signupValidation } from '../../helpers';
+import { registration } from '../../redux/reducers/auth/authSlice';
 import { SignForm, Terms } from './sign.styled';
 
 export const SignUpForm = () => {
   const navigate: NavigateFunction = useNavigate();
+  const dispatch = useDispatch();
 
   const [email, setEmail] = useState<string>('');
   const [fullName, setFullName] = useState<string>('');
@@ -61,8 +64,6 @@ export const SignUpForm = () => {
         label={'Username'}
         onChange={handleChangeUsername}
       />
-      {/* The password must contain minimum five characters, at least one letter
-          and one number. */}
       <InputPassword
         text={'Password'}
         onChange={handleChangePassword}
@@ -73,8 +74,10 @@ export const SignUpForm = () => {
         text={'sign up'}
         size={'medium'}
         disabled={!isValid}
-        onClick={() => {
+        onClick={e => {
+          e.preventDefault();
           navigate('/signin', { replace: true });
+          dispatch(registration({ email, password }));
         }}
       />
     </SignForm>

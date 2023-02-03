@@ -7,11 +7,14 @@ import {
   PageTitle,
   PageWidth,
 } from '../../common/common.styled';
-import { launchCounter, toggleIsLiked } from '../../redux/reducer/catsSlice';
-import { Cat } from '../../redux/reducer/catsSlice.types';
+import { Cat } from '../../redux/reducers/cats/catsSlice.types';
 import { AppDispatch, RootState } from '../../redux/store';
 import { ThemeContext } from '../theme/themeProvider';
 import { PostImg, PostImgWrapper, PostsWrapper, Text } from './saved.styled';
+import {
+  toggleIsLiked,
+  launchCounter,
+} from '../../redux/reducers/cats/catsSlice';
 
 export const Saved = () => {
   const { theme } = useContext(ThemeContext);

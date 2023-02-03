@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { ContainerBox } from '../../common/common.styled';
-import { Cat } from '../../redux/reducer/catsSlice.types';
+import { Cat } from '../../redux/reducers/cats/catsSlice.types';
 import { RootState } from '../../redux/store';
 import { ThemeContext } from '../theme/themeProvider';
 import { FilterWrapper, LinkList, SelectStyled } from './filter.styled';

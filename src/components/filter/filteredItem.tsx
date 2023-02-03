@@ -1,4 +1,4 @@
-import { Cat } from '../../redux/reducer/catsSlice.types';
+import { Cat } from '../../redux/reducers/cats/catsSlice.types';
 import {
   Container,
   Details,

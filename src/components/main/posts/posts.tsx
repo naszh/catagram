@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { AppDispatch, RootState } from '../../../redux/store';
 import { ThemeContext } from '../../theme/themeProvider';
-import { Cat } from '../../../redux/reducer/catsSlice.types';
+import { Cat } from '../../../redux/reducers/cats/catsSlice.types';
 
 import { CommentIcon, LikeIcon } from '../../../common/icon.styled';
 import {
@@ -18,14 +18,14 @@ import {
   PostComment,
   InputSearch,
 } from './posts.styled';
+
+import { Paragraph } from '../../../common/common.styled';
+import { LinkTo } from '../../filter/filter.styled';
 import {
+  toggleIsLiked,
   launchCounter,
   searchByName,
-  toggleIsLiked,
-} from '../../../redux/reducer/catsSlice';
-import { Paragraph } from '../../../common/common.styled';
-import 'react-lazy-load-image-component/src/effects/blur.css';
-import { LinkTo } from '../../filter/filter.styled';
+} from '../../../redux/reducers/cats/catsSlice';
 
 type CurrentPostsType = {
   currentPosts: Array<Cat> | null;
