@@ -35,11 +35,11 @@ export const FilteredItem = ({ cat }: FilteredItemProp) => {
           <Text>
             children-friendly{' '}
             <meter
-              min='0'
-              max='5'
-              low='2'
-              high='4'
-              optimum='5'
+              min={0}
+              max={5}
+              low={2}
+              high={4}
+              optimum={5}
               value={cat.children_friendly}
             ></meter>
           </Text>
@@ -48,11 +48,11 @@ export const FilteredItem = ({ cat }: FilteredItemProp) => {
           <Text>
             family-friendly{' '}
             <meter
-              min='0'
-              max='5'
-              low='2'
-              high='4'
-              optimum='5'
+              min={0}
+              max={5}
+              low={2}
+              high={4}
+              optimum={5}
               value={cat.family_friendly}
             ></meter>
           </Text>
@@ -61,11 +61,11 @@ export const FilteredItem = ({ cat }: FilteredItemProp) => {
           <Text>
             other pets friendly{' '}
             <meter
-              min='0'
-              max='5'
-              low='2'
-              high='4'
-              optimum='5'
+              min={0}
+              max={5}
+              low={2}
+              high={4}
+              optimum={5}
               value={cat.other_pets_friendly}
             ></meter>
           </Text>
@@ -74,11 +74,11 @@ export const FilteredItem = ({ cat }: FilteredItemProp) => {
           <Text>
             intelligence{' '}
             <meter
-              min='0'
-              max='5'
-              low='2'
-              high='4'
-              optimum='5'
+              min={0}
+              max={5}
+              low={2}
+              high={4}
+              optimum={5}
               value={cat.intelligence}
             ></meter>
           </Text>
@@ -87,11 +87,11 @@ export const FilteredItem = ({ cat }: FilteredItemProp) => {
           <Text>
             playfulness{' '}
             <meter
-              min='0'
-              max='5'
-              low='2'
-              high='4'
-              optimum='5'
+              min={0}
+              max={5}
+              low={2}
+              high={4}
+              optimum={5}
               value={cat.playfulness}
             ></meter>
           </Text>
@@ -100,11 +100,11 @@ export const FilteredItem = ({ cat }: FilteredItemProp) => {
           <Text>
             health{' '}
             <meter
-              min='0'
-              max='5'
-              low='2'
-              high='4'
-              optimum='5'
+              min={0}
+              max={5}
+              low={2}
+              high={4}
+              optimum={5}
               value={cat.general_health}
             ></meter>
           </Text>
@@ -113,11 +113,11 @@ export const FilteredItem = ({ cat }: FilteredItemProp) => {
           <Text>
             grooming{' '}
             <meter
-              min='0'
-              max='5'
-              low='2'
-              high='4'
-              optimum='5'
+              min={0}
+              max={5}
+              low={2}
+              high={4}
+              optimum={5}
               value={cat.grooming}
             ></meter>
           </Text>
