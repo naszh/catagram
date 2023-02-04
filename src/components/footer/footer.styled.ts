@@ -42,7 +42,7 @@ export const UserName = styled.p`
 
 export const FullName = styled.span``;
 
-export const OpenProfile = styled(LinkStyled)`
+export const OutProfile = styled(LinkStyled)`
   @media (max-width: 1024px) {
     display: none;
   }

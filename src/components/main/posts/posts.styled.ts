@@ -35,7 +35,7 @@ export const BlockUser = styled.p`
 
 export const BlockImg = styled.img`
   width: 100%;
-  max-height: 265px;
+  max-height: 310px;
   object-fit: cover;
 `;
 

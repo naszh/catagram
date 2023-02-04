@@ -7,7 +7,7 @@ import {
   UserContainer,
   UserName,
   Wrapper,
-  OpenProfile,
+  OutProfile,
 } from './footer.styled';
 
 export const Footer = () => {
@@ -21,7 +21,7 @@ export const Footer = () => {
             <FullName>Riccio</FullName>
           </UserContainer>
         </AccountWrapper>
-        <OpenProfile to='/'>open</OpenProfile>
+        <OutProfile to='/'>logout</OutProfile>
       </Profile>
       <FooterText>© 2023 CATAGRAM FROM NASZH</FooterText>
     </Wrapper>

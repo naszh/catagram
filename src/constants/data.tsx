@@ -7,7 +7,7 @@ import {
   NotesIcon,
   MoreIcon,
   SavedIcon,
-  ProfileIcon,
+  // ProfileIcon,
   SearchIcon,
   ThemeIcon,
 } from '../common/icon.styled';
@@ -19,7 +19,7 @@ export const HeaderNavigate: Array<IconNavigateType> = [
   { text: 'Notes', icon: <NotesIcon />, link: '/notes' },
   { text: 'Saved', icon: <SavedIcon />, link: '/saved' },
   { text: 'Create', icon: <CreateIcon />, link: '/create' },
-  { text: 'Profile', icon: <ProfileIcon />, link: '' },
+  // { text: 'Profile', icon: <ProfileIcon />, link: '' },
 ];
 
 export const Popup: IconNavigateType = {
