@@ -19,7 +19,6 @@ export const PageTitle = styled.p`
   margin-top: 0;
   font-size: 1.3rem;
   font-weight: 900;
-  font-family: cursive;
   text-align: center;
   text-transform: uppercase;
   text-decoration: overline;
@@ -33,7 +32,6 @@ export const LinkStyled = styled(Link)`
 export const ErrorText = styled.p`
   margin: 30px 0;
   font-size: 1.1rem;
-  font-family: cursive;
   text-align: center;
   letter-spacing: 2px;
 `;

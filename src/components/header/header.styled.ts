@@ -29,7 +29,6 @@ export const HeaderContainer = styled.header`
 `;
 
 export const HeaderTitle = styled.h1`
-  font-family: cursive;
   font-size: 1.8rem;
   margin: 0;
   padding: 0 12px;
