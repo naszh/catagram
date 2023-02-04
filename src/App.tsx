@@ -8,7 +8,7 @@ import {
 } from 'react-router-dom';
 import { SignUpPage } from './pages/signupPage';
 import { HomePage } from './pages/homePage';
-import { MsgsPage } from './pages/msgsPage';
+import { NotesPage } from './pages/notesPage';
 import { SavedPage } from './pages/savedPage';
 import { SignInPage } from './pages/signinPage';
 import { AppDispatch } from './redux/store';
@@ -38,7 +38,7 @@ export const App: FC = () => {
         <Route path='/home' element={<HomePage />} />
         <Route path='/search' element={<SearchPage />} />
         <Route path='/search/:name' element={<SearchPage />} />
-        <Route path='/messages' element={<MsgsPage />} />
+        <Route path='/notes' element={<NotesPage />} />
         <Route path='/saved' element={<SavedPage />} />
         <Route path='/create' element={<CreatePage />} />
 

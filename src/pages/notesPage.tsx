@@ -1,13 +1,13 @@
 import { Header } from '../components/header/header';
-import { Messages } from '../components/messages/messages';
+import { Notes } from '../components/notes/notes';
 import { Container } from './pages.styled';
 
-export const MsgsPage = () => {
+export const NotesPage = () => {
   return (
     <>
       <Header />
       <Container>
-        <Messages />
+        <Notes />
       </Container>
     </>
   );

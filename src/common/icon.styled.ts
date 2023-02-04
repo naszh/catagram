@@ -3,7 +3,6 @@ import {
   HiDotsVertical,
   HiHeart,
   HiHome,
-  HiMail,
   HiOutlineLogout,
   HiPhotograph,
   HiPlusCircle,
@@ -11,8 +10,9 @@ import {
   HiUserCircle,
 } from 'react-icons/hi';
 import { GiMoon } from 'react-icons/gi';
-import { TiHeartOutline } from 'react-icons/ti';
-import { MdOutlineModeComment } from 'react-icons/md';
+import { TiHeartOutline, TiDelete } from 'react-icons/ti';
+import { MdOutlineModeComment, MdNoteAlt } from 'react-icons/md';
+import { BiSave } from 'react-icons/bi';
 
 export const HomeIcon = styled(HiHome)`
   font-size: 1.6rem;
@@ -23,8 +23,18 @@ export const SearchIcon = styled(HiSearchCircle)`
 export const ExploreIcon = styled(HiPhotograph)`
   font-size: 1.6rem;
 `;
-export const MessagesIcon = styled(HiMail)`
+export const NotesIcon = styled(MdNoteAlt)`
   font-size: 1.6rem;
+`;
+export const DeleteIcon = styled(TiDelete)`
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: initial;
+`;
+export const NotesSaveIcon = styled(BiSave)`
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: initial;
 `;
 export const SavedIcon = styled(HiHeart)`
   font-size: 1.6rem;
