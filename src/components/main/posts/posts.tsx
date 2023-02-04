@@ -15,7 +15,6 @@ import {
   BlockUser,
   PostIcons,
   PostDescription,
-  PostComment,
   InputSearch,
 } from './posts.styled';
 
@@ -96,7 +95,6 @@ export const Posts: FC<CurrentPostsType> = ({ currentPosts }): JSX.Element => {
               </LinkTo>
               <PostDescription>origin#{cat.origin}</PostDescription>
             </BlockUser>
-            <PostComment>add a comment</PostComment>
           </PostBlock>
         ))
       ) : (

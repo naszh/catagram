@@ -27,7 +27,6 @@ export const StoryContainer = styled.div`
   z-index: 100;
   display: flex;
   justify-content: center;
-  right: 40%;
 `;
 
 export const ClearLayer = styled.div`

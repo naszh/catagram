@@ -7,8 +7,8 @@ export const Text = styled.p`
 
 export const PostsWrapper = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-auto-rows: 1fr;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   margin: 10px;
 `;
 

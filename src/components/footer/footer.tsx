@@ -1,4 +1,3 @@
-import { LinkStyled } from '../../common/common.styled';
 import {
   AccountImg,
   AccountWrapper,
@@ -8,6 +7,7 @@ import {
   UserContainer,
   UserName,
   Wrapper,
+  OpenProfile,
 } from './footer.styled';
 
 export const Footer = () => {
@@ -21,7 +21,7 @@ export const Footer = () => {
             <FullName>Riccio</FullName>
           </UserContainer>
         </AccountWrapper>
-        <LinkStyled to='/'>open</LinkStyled>
+        <OpenProfile to='/'>open</OpenProfile>
       </Profile>
       <FooterText>© 2023 CATAGRAM FROM NASZH</FooterText>
     </Wrapper>

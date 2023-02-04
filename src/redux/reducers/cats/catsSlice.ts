@@ -92,7 +92,6 @@ const catsSlice = createSlice({
       state.error = null;
     });
     builder.addCase(fetchCats.fulfilled, (state, action) => {
-      state.loading = false;
       state.initArr = action.payload;
       state.initArr = state.initArr.map(arr => ({
         ...arr,
@@ -103,6 +102,7 @@ const catsSlice = createSlice({
       state.stories = [...state.initArr]
         .sort(() => Math.random() - 0.5)
         .slice(0, 13);
+      state.loading = false;
     });
     builder.addCase(fetchCats.rejected, (state, action) => {
       state.loading = false;

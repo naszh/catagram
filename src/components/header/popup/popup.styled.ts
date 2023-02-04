@@ -9,6 +9,9 @@ export const PopupMenu = styled.a`
   text-decoration: none;
   color: inherit;
   cursor: pointer;
+  @media (max-width: 375px) {
+    padding: 6px;
+  }
 `;
 
 export const Item = styled(MenuItem)`

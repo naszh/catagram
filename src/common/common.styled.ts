@@ -12,7 +12,7 @@ export const ContainerBox = styled.div<{ theme: Theme }>`
 `;
 
 export const PageWidth = styled.div`
-  width: 80%;
+  width: 85%;
 `;
 
 export const PageTitle = styled.p`

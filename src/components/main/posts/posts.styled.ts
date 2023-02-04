@@ -5,7 +5,7 @@ export const PostBlock = styled.div<{ theme: Theme }>`
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
-  height: 500px;
+  padding-bottom: 10px;
   border: 1px solid;
   border-color: ${({ theme }) =>
     theme === 'light' ? 'rgba(0,0,0,0.2)' : 'rgba(255,255,255,0.2)'};
@@ -35,7 +35,7 @@ export const BlockUser = styled.p`
 
 export const BlockImg = styled.img`
   width: 100%;
-  height: 65%;
+  max-height: 265px;
   object-fit: cover;
 `;
 
@@ -46,10 +46,6 @@ export const PostIcons = styled.div`
 export const PostDescription = styled.span`
   font-weight: normal;
   margin-left: 7px;
-`;
-
-export const PostComment = styled.div`
-  padding-left: 12px;
 `;
 
 export const InputSearch = styled.input<{ theme: Theme }>`

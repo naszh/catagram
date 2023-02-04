@@ -1,10 +1,17 @@
 import styled from 'styled-components';
+import { LinkStyled } from '../../common/common.styled';
 
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 270px;
+  @media (max-width: 1024px) {
+    width: 110px;
+  }
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const Profile = styled.div`
@@ -34,6 +41,12 @@ export const UserName = styled.p`
 `;
 
 export const FullName = styled.span``;
+
+export const OpenProfile = styled(LinkStyled)`
+  @media (max-width: 1024px) {
+    display: none;
+  }
+`;
 
 export const FooterText = styled.p`
   margin: 0;
