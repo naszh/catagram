@@ -4,7 +4,6 @@ import { v4 as uuidv4 } from 'uuid';
 import { links, X_API_KEY } from '../../../api/api';
 import { Cat, InitialStateType } from './catsSlice.types';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const fetchCats: any = createAsyncThunk(
   'cats/fetchCats',
   async (offset: number) => {

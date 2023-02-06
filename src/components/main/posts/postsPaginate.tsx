@@ -3,7 +3,6 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import { ColorRing } from 'react-loader-spinner';
 import { useDispatch, useSelector } from 'react-redux';
 import { setOffset } from '../../../redux/reducers/cats/catsSlice';
-
 import { Cat } from '../../../redux/reducers/cats/catsSlice.types';
 import { AppDispatch, RootState } from '../../../redux/store';
 import { Posts } from './posts';
@@ -38,7 +37,6 @@ export const PostsPaginate: FC<PostsPerPageType> = ({
         <InfiniteScroll
           dataLength={offset + postsPerPage}
           next={handlePageClick}
-          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
           hasMore={offset + postsPerPage < posts!.length}
           scrollThreshold={1}
           loader={<ColorRing />}

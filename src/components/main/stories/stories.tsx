@@ -3,10 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import { Navigation, A11y } from 'swiper';
 import { Swiper } from 'swiper/react';
-
 import { StoriesOpen } from '../storiesOpen/storiesOpen';
 import { AppDispatch, RootState } from '../../../redux/store';
-
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { SlideStyled, StoryImg, StoryUser } from './stories.styled';

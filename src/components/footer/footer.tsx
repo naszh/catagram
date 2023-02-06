@@ -1,3 +1,6 @@
+import { useDispatch } from 'react-redux';
+import { NavigateFunction, useNavigate } from 'react-router-dom';
+import { logout } from '../../redux/reducers/auth/authSlice';
 import {
   AccountImg,
   AccountWrapper,
@@ -11,6 +14,9 @@ import {
 } from './footer.styled';
 
 export const Footer = () => {
+  const navigate: NavigateFunction = useNavigate();
+  const dispatch = useDispatch();
+
   return (
     <Wrapper>
       <Profile>
@@ -21,7 +27,14 @@ export const Footer = () => {
             <FullName>Riccio</FullName>
           </UserContainer>
         </AccountWrapper>
-        <OutProfile to='/'>logout</OutProfile>
+        <OutProfile
+          onClick={async () => {
+            await dispatch(logout());
+            navigate('/signin', { replace: true });
+          }}
+        >
+          logout
+        </OutProfile>
       </Profile>
       <FooterText>© 2023 CATAGRAM FROM NASZH</FooterText>
     </Wrapper>

@@ -7,11 +7,13 @@ import { ThemeContext } from '../theme/themeProvider';
 import { FilterWrapper, LinkList, SelectStyled } from './filter.styled';
 import { FilteredItem } from './filteredItem';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const Filter = ({ name }: any): JSX.Element => {
+export interface FilterProp {
+  name?: string;
+}
+
+export const Filter = ({ name }: FilterProp): JSX.Element => {
   const { theme } = useContext(ThemeContext);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const [_isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const onMenuOpen = () => setIsMenuOpen(true);
   const onMenuClose = () => setIsMenuOpen(false);
 
@@ -33,7 +35,6 @@ export const Filter = ({ name }: any): JSX.Element => {
           onMenuOpen={onMenuOpen}
           onMenuClose={onMenuClose}
           options={catsFilterNames}
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           onChange={(e: any) => setCat(e)}
         />
         {cat && <FilteredItem cat={cat} />}

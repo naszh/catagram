@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { LinkStyled } from '../../common/common.styled';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -42,7 +41,8 @@ export const UserName = styled.p`
 
 export const FullName = styled.span``;
 
-export const OutProfile = styled(LinkStyled)`
+export const OutProfile = styled.p`
+  cursor: pointer;
   @media (max-width: 1024px) {
     display: none;
   }

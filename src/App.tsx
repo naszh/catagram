@@ -14,7 +14,6 @@ import { SignInPage } from './pages/signinPage';
 import { AppDispatch } from './redux/store';
 import { ErrorPage } from './pages/errorPage';
 import { SearchPage } from './pages/searchPage';
-import { CreatePage } from './pages/createPage';
 import { fetchCats } from './redux/reducers/cats/catsSlice';
 import { checkAuth } from './redux/reducers/auth/authSlice';
 
@@ -40,7 +39,6 @@ export const App: FC = () => {
         <Route path='/search/:name' element={<SearchPage />} />
         <Route path='/notes' element={<NotesPage />} />
         <Route path='/saved' element={<SavedPage />} />
-        <Route path='/create' element={<CreatePage />} />
 
         <Route path='*' element={<ErrorPage />} />
       </Routes>
