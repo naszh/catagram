@@ -24,6 +24,7 @@ export const StoryUser = styled.p`
 export const StoryContainer = styled.div`
   position: fixed;
   top: 3%;
+  left: 43%;
   z-index: 100;
   display: flex;
   justify-content: center;
